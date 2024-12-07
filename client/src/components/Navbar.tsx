@@ -1,9 +1,13 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { ReactElement } from "react";
 import { LinksBar } from "./LinksBar";
 import { useNavigate } from "react-router";
 
-export function Navbar(): ReactElement {
+interface INavbar {
+  setDirection: Dispatch<SetStateAction<string>>;
+}
+
+export function Navbar(props: INavbar): ReactElement {
   const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
   useEffect(() => {
@@ -41,7 +45,7 @@ export function Navbar(): ReactElement {
           isSticky ? "fixed shadow-md top-0 left-0 w-full px-8 z-10" : ""
         } bg-white `}
       >
-        <LinksBar />
+        <LinksBar setDirection={props.setDirection} />
       </div>
     </div>
   );

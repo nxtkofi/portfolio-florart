@@ -1,10 +1,10 @@
-import { type ReactElement, type ReactNode } from "react"
+import { type ReactElement, type ReactNode } from "react";
+import { Wrapper } from "../components/Wrapper";
 
 export interface PaintingsPageProps {
-  
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function PaintingsPage(props: PaintingsPageProps): ReactElement {
-  return <></>
+  return <Wrapper>Paintings page</Wrapper>;
 }
