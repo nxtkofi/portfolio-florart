@@ -1,10 +1,10 @@
-import { type ReactElement, type ReactNode } from "react"
+import { type ReactElement, type ReactNode } from "react";
+import { Wrapper } from "../components/Wrapper";
 
 export interface ContactPageProps {
-  
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function ContactPage(props: ContactPageProps): ReactElement {
-  return <></>
+  return <Wrapper>Contact page</Wrapper>;
 }

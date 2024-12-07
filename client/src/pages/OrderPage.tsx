@@ -1,10 +1,10 @@
-import { type ReactElement, type ReactNode } from "react"
+import { type ReactElement, type ReactNode } from "react";
+import { Wrapper } from "../components/Wrapper";
 
 export interface OrderPageProps {
-  
-  children: ReactNode
+  children: ReactNode;
 }
 
 export function OrderPage(props: OrderPageProps): ReactElement {
-  return <></>
+  return <Wrapper>OrderPage</Wrapper>;
 }
