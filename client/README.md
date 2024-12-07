@@ -7,7 +7,7 @@
 
 - [ ] feature/1-header-navbar #Assigned
   - [x] Navbar should stick to the top of the page on scroll
-  - [ ] Navbar should have routes to other subpages with animations
+- [ ] feature/2-subpages-animations
 - [ ] feature - dark mode
   - To specify darkmode colors you can use 'dark:' prefix to certain classes.
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
