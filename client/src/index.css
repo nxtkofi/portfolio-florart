@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	@apply m-8
+}
+
+@font-face {
+	font-family: "Amsterdam Four";
+	font-style: normal;
+	font-weight: 500;
+	src:
+		url(/fonts/amsterdam-four.ttf) format("truetype");
+}
+
+.navbar-header {
+	font-family: "Amsterdam Four", sans-serif;
+}
+
+body {
+	@apply min-h-[160vh]
+}
+
+.background-primary {
+	@apply bg-[#dbd7d3];
+}
+
+.background-secondary {
+	@apply bg-[#edebe9]
+}
+
+.text-primary {
+	@apply text-[#2c2c2e]
+}
+
+.text-secondary {
+	@apply text-[#4a4b4e]
+}
+
+.montserrat {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+}
