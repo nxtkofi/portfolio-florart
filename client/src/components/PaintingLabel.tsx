@@ -12,7 +12,7 @@ export function PaintingLabel(props: PaintingLabelProps): ReactElement {
     currency: "PLN",
   });
   return (
-    <div className="background-secondary px-24 py-2 flex flex-col w-fit text-center text-secondary">
+    <div className="background-secondary md:px-24 py-2 flex flex-col md:w-fit w-full text-center text-secondary">
       <p className=" text-2xl">{props.paintingName}</p>
       <p className="font-light">{PLN.format(props.price)}</p>
       <button
