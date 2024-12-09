@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, type ReactElement } from "react";
-import { NAVBAR_LINKS } from "../constants";
 import { useNavigate } from "react-router";
+import { NAVBAR_LINKS } from "../constants";
 
 interface ILinksBar {
   setDirection: Dispatch<SetStateAction<string>>;
