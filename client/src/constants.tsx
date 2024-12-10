@@ -1,4 +1,4 @@
-import { NavbarLinkType } from "./types";
+import { ItemsType, NavbarLinkType } from "./types";
 
 export const NAVBAR_LINKS: NavbarLinkType[] = [
   {
@@ -19,13 +19,13 @@ export const NAVBAR_LINKS: NavbarLinkType[] = [
     path: "/contact",
   },
 ];
-export const ITEMS = [
+export const ITEMS: ItemsType[] = [
   {
     title: "Lodowiec",
     price: 140.0,
     photo: (
       <>
-        <img width={600} height={800} />
+        <img src={"/lodowiec.jpg"} width={600} height={800} />
       </>
     ),
   },
@@ -34,7 +34,7 @@ export const ITEMS = [
     price: 330.0,
     photo: (
       <>
-        <img width={600} height={800} />
+        <img src={"/odplyw.jpg"} width={600} height={800} />
       </>
     ),
   },
@@ -43,7 +43,7 @@ export const ITEMS = [
     price: 90.0,
     photo: (
       <>
-        <img width={600} height={800} />
+        <img src={"/line.jpg"} width={600} height={800} />
       </>
     ),
   },
@@ -52,7 +52,7 @@ export const ITEMS = [
     price: 2300.0,
     photo: (
       <>
-        <img width={600} height={800} />
+        <img src={"/plastikowe.jpg"} width={600} height={800} />
       </>
     ),
   },
@@ -61,7 +61,16 @@ export const ITEMS = [
     price: 2300.0,
     photo: (
       <>
-        <img width={600} height={800} />
+        <img src={"/sniezka.jpg"} width={600} height={800} />
+      </>
+    ),
+  },
+  {
+    title: "Vangog",
+    price: 2299.99,
+    photo: (
+      <>
+        <img src={"/vangog.webp"} />
       </>
     ),
   },

@@ -1,78 +1,112 @@
-import { useState, type ReactElement, type ReactNode } from "react";
-import { ITEMS } from "../constants";
-import { PaintingLabel } from "./PaintingLabel";
+import React, { useState, useEffect, useRef } from "react";
 
-/* export interface ArtSliderProps { */
-/*   children: ReactNode */
-/* } */
-
-export function ArtSlider(/* props: ArtSliderProps */): ReactElement {
-  const [startIndex, setStartIndex] = useState(0);
-
+export function ArtSlider(): React.ReactElement {
   const ITEMS = [
     {
       title: "Lodowiec",
       price: 140.0,
-      photo: <img src="/path/lodowiec.jpg" width={600} height={800} />,
+      photo: <img src="/lodowiec.jpg" width={600} height={800} />,
     },
     {
       title: "Odpływ",
       price: 330.0,
-      photo: <img src="/path/odplyw.jpg" width={600} height={800} />,
+      photo: <img src="/odplyw.jpg" width={600} height={800} />,
     },
     {
       title: "Linia",
       price: 90.0,
-      photo: <img src="/path/linia.jpg" width={600} height={800} />,
+      photo: <img src="/line.jpg" width={600} height={800} />,
     },
     {
       title: "Plastikowe Żółwie",
       price: 2300.0,
-      photo: <img src="/path/plastikowe-zolwie.jpg" width={600} height={800} />,
+      photo: <img src="/plastikowe.jpg" width={600} height={800} />,
     },
     {
       title: "Śnieżka",
       price: 2300.0,
-      photo: <img src="/path/sniezka.jpg" width={600} height={800} />,
+      photo: <img src="/sniezka.jpg" width={600} height={800} />,
     },
   ];
 
+  const extendedItems = [
+    ITEMS[ITEMS.length - 1], // Duplikat ostatniego
+    ...ITEMS,
+    ITEMS[0], // Duplikat pierwszego
+    ITEMS[1], // Duplikat pierwszego
+    ITEMS[2], // Duplikat pierwszego
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(1); // Startujemy od 1 (drugi element w extendedItems)
+  const [isAnimating, setIsAnimating] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
   const handleNext = () => {
-    setStartIndex((prevIndex) => (prevIndex + 1) % ITEMS.length);
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex((prev) => prev + 1);
+    }
   };
 
   const handlePrevious = () => {
-    setStartIndex((prevIndex) => (prevIndex - 1 + ITEMS.length) % ITEMS.length);
+    if (!isAnimating) {
+      setIsAnimating(true);
+      setCurrentIndex((prev) => prev - 1);
+    }
   };
 
-  const visibleItems = [
-    ITEMS[startIndex],
-    ITEMS[(startIndex + 1) % ITEMS.length],
-    ITEMS[(startIndex + 2) % ITEMS.length],
-  ];
+  // Efekt do obsługi resetowania pętli
+  useEffect(() => {
+    if (isAnimating) {
+      const timeout = setTimeout(() => {
+        setIsAnimating(false);
+
+        if (currentIndex === 0) {
+          // Jeśli wróciliśmy za daleko, resetujemy na ostatni prawdziwy element
+          setCurrentIndex(ITEMS.length);
+          sliderRef.current!.style.transition = "none";
+          sliderRef.current!.style.transform = `translateX(-${ITEMS.length * 33.33}%)`;
+        } else if (currentIndex === extendedItems.length - 3) {
+          // Jeśli przeszliśmy za daleko, resetujemy na pierwszy prawdziwy element
+          setCurrentIndex(1);
+          sliderRef.current!.style.transition = "none";
+          sliderRef.current!.style.transform = `translateX(-33.33%)`;
+        }
+      }, 500);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, isAnimating, ITEMS.length, extendedItems.length]);
+
+  // Aktualizacja przesunięcia za pomocą transformacji CSS
+  useEffect(() => {
+    if (!isAnimating) return;
+
+    sliderRef.current!.style.transition = "transform 0.5s ease-in-out";
+    sliderRef.current!.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+  }, [currentIndex, isAnimating]);
 
   return (
-    <div className="w-[90%]">
-      <div className="flex flex-row justify-between items-center">
-        <button onClick={handlePrevious} className="p-2 bg-gray-300 rounded">
-          ←
-        </button>
-        <div className="flex flex-row gap-x-8">
-          {visibleItems.map((item, index) => (
-            <div key={index} className="flex flex-col gap-y-4">
+    <div className="slider-container">
+      <button onClick={handlePrevious} className="arrow-button">
+        ←
+      </button>
+      <div className="slider">
+        <div ref={sliderRef} className="slider-track">
+          {extendedItems.map((item, index) => (
+            <div key={index} className="slider-item">
               {item.photo}
-              <PaintingLabel
-                paintingName={item.title}
-                price={item.price}
-                redirectPath={""}
-              />
+              <div>
+                <div>{item.title}</div>
+                <div>{item.price} zł</div>
+              </div>
             </div>
           ))}
         </div>
-        <button onClick={handleNext} className="p-2 bg-gray-300 rounded">
-          →
-        </button>
       </div>
+      <button onClick={handleNext} className="arrow-button">
+        →
+      </button>
     </div>
   );
 }

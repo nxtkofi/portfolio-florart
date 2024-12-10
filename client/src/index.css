@@ -42,3 +42,49 @@ body {
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
 }
+
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 90%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slider {
+  width: 80%; /* Szerokość widocznego obszaru */
+  overflow: hidden;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.slider-item {
+  flex: 0 0 33.33%; /* Każdy obraz zajmuje 1/3 widocznej szerokości */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.arrow-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+
+.arrow-button:hover {
+  background-color: #bbb;
+}
+
