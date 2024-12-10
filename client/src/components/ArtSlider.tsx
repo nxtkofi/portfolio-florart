@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 
+// NOTE: Consider not doing an infinite slide. The amount of time that was spent on doing this will not be worth it at some point
+// Your alternatives are:
+// - Make an ending slide
+// - Make it slide all the way to the start when You reach the end and the other way around
+//
 export function ArtSlider(): React.ReactElement {
+  const [currentIndex, setCurrentIndex] = useState(1);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
   const ITEMS = [
     {
       title: "Lodowiec",
@@ -38,10 +46,6 @@ export function ArtSlider(): React.ReactElement {
     ITEMS[2],
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
-
   const handleNext = () => {
     if (!isAnimating) {
       setIsAnimating(true);
@@ -55,7 +59,7 @@ export function ArtSlider(): React.ReactElement {
     if (!isAnimating) {
       setIsAnimating(true);
       setCurrentIndex((prev) =>
-        prev === 0 ? extendedItems.length - 3 : prev - 1,
+        prev === 0 ? extendedItems.length - 4 : prev - 1,
       );
     }
   };
@@ -64,7 +68,6 @@ export function ArtSlider(): React.ReactElement {
     if (isAnimating) {
       const timeout = setTimeout(() => {
         setIsAnimating(false);
-        // Reset transition state after animation completes
         if (currentIndex === 0) {
           setCurrentIndex(ITEMS.length);
           sliderRef.current!.style.transition = "none";
@@ -72,9 +75,9 @@ export function ArtSlider(): React.ReactElement {
         } else if (currentIndex === extendedItems.length - 3) {
           setCurrentIndex(1);
           sliderRef.current!.style.transition = "none";
-          sliderRef.current!.style.transform = `translateX(-33.33%)`;
+          sliderRef.current!.style.transform = `translateX(0%)`;
         }
-      }, 500); // Czas trwania animacji
+      }, 500);
 
       return () => clearTimeout(timeout);
     }
@@ -84,9 +87,12 @@ export function ArtSlider(): React.ReactElement {
     if (!isAnimating) return;
 
     sliderRef.current!.style.transition = "transform 0.5s ease-in-out";
-    sliderRef.current!.style.transform = `translateX(-${currentIndex * 33.33}%)`;
+    sliderRef.current!.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
   }, [currentIndex, isAnimating]);
 
+  useEffect(() => {
+    console.log(currentIndex);
+  }, [currentIndex]);
   return (
     <div className="slider-container">
       <button onClick={handlePrevious} className="arrow-button">
@@ -99,7 +105,7 @@ export function ArtSlider(): React.ReactElement {
             return (
               <div
                 key={index}
-                className={`slider-item ${isCenter ? "scale-110" : "scale-95"}`}
+                className={`slider-item transition-all ${isCenter ? "scale-110" : "scale-90"}`}
               >
                 <div className="flex flex-col mx-2 justify-center items-center gap-y-4">
                   {item.photo}

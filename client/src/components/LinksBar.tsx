@@ -11,6 +11,7 @@ export function LinksBar(props: ILinksBar): ReactElement {
     <div className="md:flex md:flex-row grid grid-cols-3 justify-between pb-4 pt-4 md:mx-16 md:text-2xl">
       {NAVBAR_LINKS.map((link) => (
         <button
+          key={link.header}
           aria-label={
             "Button redirecting user to '" + link.header + "' section."
           }
