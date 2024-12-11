@@ -14,27 +14,40 @@ export function ArtSlider(): React.ReactElement {
     {
       title: "Lodowiec",
       price: 140.0,
-      photo: <img src="/2.Obrazy/Lodowiec/IMG_0907.JPG" />,
+      photo: (
+        <img className="zoomed-image" src="/2.Obrazy/Lodowiec/IMG_0907.JPG" />
+      ),
     },
     {
       title: "Odpływ",
       price: 330.0,
-      photo: <img src="/2.Obrazy/Odpływ/IMG_0896.JPG" />,
+      photo: (
+        <img className="zoomed-image" src="/2.Obrazy/Odpływ/IMG_0896.JPG" />
+      ),
     },
     {
       title: "Linia",
       price: 90.0,
-      photo: <img src="/2.Obrazy/Linia/IMG_0908.JPG" />,
+      photo: (
+        <img className="zoomed-image" src="/2.Obrazy/Linia/IMG_0908.JPG" />
+      ),
     },
     {
       title: "Plastikowe Żółwie",
       price: 2300.0,
-      photo: <img src="/2.Obrazy/Plastikowe_żółwie/IMG_0916.JPG" />,
+      photo: (
+        <img
+          className="zoomed-image"
+          src="/2.Obrazy/Plastikowe_żółwie/IMG_0916.JPG"
+        />
+      ),
     },
     {
       title: "Śnieżka",
       price: 2300.0,
-      photo: <img src="/2.Obrazy/Śnieżka/IMG_0919.JPG" />,
+      photo: (
+        <img className="zoomed-image" src="/2.Obrazy/Śnieżka/IMG_0919.JPG" />
+      ),
     },
   ];
 
@@ -94,11 +107,11 @@ export function ArtSlider(): React.ReactElement {
     console.log(currentIndex);
   }, [currentIndex]);
   return (
-    <div className="slider-container">
+    <div className="slider-container ">
       <button onClick={handlePrevious} className="arrow-button">
         ←
       </button>
-      <div className="slider">
+      <div className="slider py-16">
         <div ref={sliderRef} className="slider-track">
           {extendedItems.map((item, index) => {
             const isCenter = index === currentIndex;
@@ -108,7 +121,8 @@ export function ArtSlider(): React.ReactElement {
                 className={`slider-item transition-all ${isCenter ? "scale-110" : "scale-90"}`}
               >
                 <div className="flex flex-col mx-2 justify-center items-center gap-y-4">
-                  {item.photo}
+                  <div className="zoomed-image-container">{item.photo}</div>
+
                   <PaintingLabel
                     paintingName={item.title}
                     price={item.price}
