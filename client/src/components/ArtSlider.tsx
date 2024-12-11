@@ -5,7 +5,7 @@ import { PaintingLabel } from "./PaintingLabel";
 // Your alternatives are:
 // - Make an ending slide
 // - Make it slide all the way to the start when You reach the end and the other way around
-//
+
 export function ArtSlider(): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
