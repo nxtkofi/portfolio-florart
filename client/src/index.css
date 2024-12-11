@@ -7,16 +7,11 @@
 	font-family: "Alexandria", sans-serif;
 	font-optical-sizing: auto;
 }
-
 .montserrat {
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
 }
-
 /* Fonts end*/
-
-
-
 
 body {
 	@apply m-8
