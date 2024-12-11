@@ -5,7 +5,6 @@
 
 ## Features
 
-- [ ] feature/4-about-me-page
 - [ ] feature/5-paintings-page
   - [ ]  feature/5.1-pagination
 - [ ] feature/6-single-painting-page
@@ -26,6 +25,7 @@
 
 
 ### Working on
+
 
 
 #### Archived
