@@ -7,9 +7,15 @@ import { PaintingLabel } from "./PaintingLabel";
 // - Make it slide all the way to the start when You reach the end and the other way around
 //
 export function ArtSlider(): React.ReactElement {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>(null);
+  const sliderRef = useRef<HTMLDivElement>();
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.style.transition = "none"; // Bez animacji przy inicjalizacji
+      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
+    }
+  }, []);
   const ITEMS = [
     {
       title: "Lodowiec",
@@ -52,6 +58,7 @@ export function ArtSlider(): React.ReactElement {
   ];
 
   const extendedItems = [
+    ITEMS[ITEMS.length - 2],
     ITEMS[ITEMS.length - 1],
     ...ITEMS,
     ITEMS[0],
@@ -81,24 +88,22 @@ export function ArtSlider(): React.ReactElement {
     if (isAnimating) {
       const timeout = setTimeout(() => {
         setIsAnimating(false);
-        if (currentIndex === 0) {
-          setCurrentIndex(ITEMS.length);
+        if (currentIndex === 1) {
+          setCurrentIndex(ITEMS.length + 1);
           sliderRef.current!.style.transition = "none";
           sliderRef.current!.style.transform = `translateX(-${ITEMS.length * 33.33}%)`;
         } else if (currentIndex === extendedItems.length - 3) {
-          setCurrentIndex(1);
+          setCurrentIndex(2);
           sliderRef.current!.style.transition = "none";
-          sliderRef.current!.style.transform = `translateX(0%)`;
+          sliderRef.current!.style.transform = `translateX(-33.33%)`;
         }
       }, 500);
-
       return () => clearTimeout(timeout);
     }
   }, [currentIndex, isAnimating, ITEMS.length, extendedItems.length]);
 
   useEffect(() => {
     if (!isAnimating) return;
-
     sliderRef.current!.style.transition = "transform 0.5s ease-in-out";
     sliderRef.current!.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
   }, [currentIndex, isAnimating]);

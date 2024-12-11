@@ -5,9 +5,6 @@
 
 ## Features
 
-- [x] feature/1-header-navbar #Assigned
-  - [x] Navbar should stick to the top of the page on scroll
-- [x] feature/2-subpages-animations
 - [ ] feature/4-about-me-page
 - [ ] feature/5-paintings-page
   - [ ]  feature/5.1-pagination
@@ -30,12 +27,18 @@
 
 ### Working on
 
-- [ ] feature/3-art-slider
-- [ ] feature/12-fonts
 
 #### Archived
 
+- [x] feature/1-header-navbar #Assigned
+  - [x] Navbar should stick to the top of the page on scroll
+- [x] feature/2-subpages-animations
+- [x] feature/3-art-slider
+- [x] feature/12-fonts
 ## Bugs
+
+ - [ ] fix/1-slider-flickering 
+ Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
 ### Working on
 #### Archived
 
