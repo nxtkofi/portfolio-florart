@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { PaintingLabel } from "./PaintingLabel";
-
-// NOTE: Consider not doing an infinite slide. The amount of time that was spent on doing this will not be worth it at some point
-// Your alternatives are:
-// - Make an ending slide
-// - Make it slide all the way to the start when You reach the end and the other way around
 
 export function ArtSlider(): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
-  const sliderRef = useRef<HTMLDivElement>();
+  const sliderRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.style.transition = "none"; // Bez animacji przy inicjalizacji
