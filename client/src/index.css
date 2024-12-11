@@ -33,6 +33,10 @@ body {
 	@apply bg-[#edebe9]
 }
 
+.background-tertiary {
+	@apply bg-[#f4f3f2]
+}
+
 .text-primary {
 	@apply text-black
 }
