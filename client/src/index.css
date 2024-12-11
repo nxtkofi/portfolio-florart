@@ -7,18 +7,22 @@
 	font-family: "Alexandria", sans-serif;
 	font-optical-sizing: auto;
 }
+
 .montserrat {
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
 }
-/* Fonts end*/
 
-body {
-	@apply m-8
+.cormorant {
+	font-family: "Cormorant Upright", serif;
+	font-optical-sizing: auto;
 }
 
+/* Fonts end*/
+
+
 body {
-	@apply min-h-[160vh]
+	@apply min-h-[160vh] p-4 md:p-8
 }
 
 .background-primary {
@@ -44,7 +48,6 @@ body {
 
 .slider {
 	@apply w-[100%] overflow-hidden;
-	/* Szerokość widocznego obszaru */
 }
 
 .slider-track {
