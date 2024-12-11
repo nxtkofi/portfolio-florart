@@ -38,7 +38,7 @@ export function Navbar(props: INavbar): ReactElement {
         >
           Weronika Florków
         </button>
-        <p className="absolute text-gray-600">Artist</p>
+        <p className="absolute text-white alexandria uppercase">Artist</p>
       </div>
       <div
         className={`${

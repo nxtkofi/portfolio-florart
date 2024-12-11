@@ -2,12 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-	@apply m-8
+/* Fonts */
+.alexandria {
+	font-family: "Alexandria", sans-serif;
+	font-optical-sizing: auto;
 }
 
-.navbar-header {
-	font-family: "Amsterdam Four", sans-serif;
+.montserrat {
+	font-family: "Montserrat", sans-serif;
+	font-optical-sizing: auto;
+}
+
+/* Fonts end*/
+
+
+
+
+body {
+	@apply m-8
 }
 
 body {
@@ -23,18 +35,12 @@ body {
 }
 
 .text-primary {
-	@apply text-[#2c2c2e]
+	@apply text-black
 }
 
 .text-secondary {
 	@apply text-[#4a4b4e]
 }
-
-.montserrat {
-	font-family: "Montserrat", sans-serif;
-	font-optical-sizing: auto;
-}
-
 
 
 .slider-container {
