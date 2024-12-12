@@ -16,7 +16,7 @@ export function LinksBar(props: ILinksBar): ReactElement {
           aria-label={
             "Button redirecting user to '" + link.header + "' section."
           }
-          className="uppercase transition-all duration-300 hover:underline underline-offset-4"
+          className="uppercase transition-all duration-300 hover:font-light"
           onClick={() => {
             navigate(link.path);
             props.setDirection(link.path);
