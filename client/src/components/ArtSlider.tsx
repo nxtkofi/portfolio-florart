@@ -140,8 +140,8 @@ export function ArtSlider(): React.ReactElement {
   }, [currentIndex]);
   return (
     <div className="slider-container">
-      <button onClick={handlePrevious} className="arrow-button">
-        ←
+      <button onClick={handlePrevious}>
+
       </button>
       <div className="slider py-16">
         <div ref={sliderRef} className="slider-track">
