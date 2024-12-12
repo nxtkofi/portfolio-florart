@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { PaintingLabel } from "./PaintingLabel";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const ITEMS = [
   {
@@ -140,8 +141,11 @@ export function ArtSlider(): React.ReactElement {
   }, [currentIndex]);
   return (
     <div className="slider-container">
-      <button onClick={handlePrevious}>
-
+      <button onClick={handlePrevious} className="relative">
+        <ChevronLeft
+          className="absolute z-10 text-white -top-16 -left-6"
+          size={72}
+        />
       </button>
       <div className="slider py-16">
         <div ref={sliderRef} className="slider-track">
@@ -169,8 +173,11 @@ export function ArtSlider(): React.ReactElement {
           })}
         </div>
       </div>
-      <button onClick={handleNext} className="arrow-button">
-        →
+      <button onClick={handleNext} className="relative">
+        <ChevronRight
+          className="absolute -top-16 -right-6 z-40 text-white"
+          size={72}
+        />
       </button>
     </div>
   );
