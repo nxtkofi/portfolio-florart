@@ -14,7 +14,6 @@
     - Contact dialog should be almost the same component that's in contact page
 - [ ] feature/7-portfolio-page
 - [ ] feature/8-order-page
-- [ ] feature/9-contact-page
 - [ ] feature/10-footer
 - [ ] feature/11-home-page
 - [ ] feature/11-dark-mode
@@ -25,6 +24,7 @@
 
 ### Working on
 
+- [ ] feature/9-contact-page
 - [ ] feature/4-about-me-page
 
 #### Archived
