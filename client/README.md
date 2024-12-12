@@ -17,7 +17,6 @@
 - [ ] feature/9-contact-page
 - [ ] feature/10-footer
 - [ ] feature/11-home-page
-
 - [ ] feature/11-dark-mode
   - To specify darkmode colors you can use 'dark:' prefix to certain classes.
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
@@ -39,9 +38,10 @@
 
 ### Working on
 
- - [ ] fix/1-slider-flickering 
- Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
 #### Archived
+
+ - [x] fix/1-slider-flickering 
+ Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
 
 
 
