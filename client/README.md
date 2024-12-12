@@ -37,9 +37,10 @@
 - [x] feature/12-fonts
 ## Bugs
 
+### Working on
+
  - [ ] fix/1-slider-flickering 
  Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
-### Working on
 #### Archived
 
 
