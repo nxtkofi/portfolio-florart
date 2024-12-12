@@ -163,9 +163,8 @@ export function ArtSlider(): React.ReactElement {
                 key={index}
                 className={`slider-item transition-all duration-500 ${isCenter ? "scale-110" : "scale-90"}`}
               >
-                <div className="flex flex-col mx-2 justify-center items-center gap-y-4">
+                <div className="flex flex-col mx-6 justify-center items-center gap-y-4">
                   <div className="zoomed-image-container">{item.photo}</div>
-
                   <PaintingLabel
                     paintingName={item.title}
                     price={item.price}
