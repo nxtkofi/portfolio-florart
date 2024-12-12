@@ -139,7 +139,7 @@ export function ArtSlider(): React.ReactElement {
     console.log(currentIndex);
   }, [currentIndex]);
   return (
-    <div className="slider-container ">
+    <div className="slider-container">
       <button onClick={handlePrevious} className="arrow-button">
         ←
       </button>
