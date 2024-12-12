@@ -141,7 +141,11 @@ export function ArtSlider(): React.ReactElement {
   }, [currentIndex]);
   return (
     <div className="slider-container">
-      <button onClick={handlePrevious} className="relative">
+      <button
+        onClick={handlePrevious}
+        className="relative"
+        aria-label="Previous painting"
+      >
         <ChevronLeft
           className="absolute z-10 text-white -top-16 -left-6"
           size={72}
@@ -173,7 +177,11 @@ export function ArtSlider(): React.ReactElement {
           })}
         </div>
       </div>
-      <button onClick={handleNext} className="relative">
+      <button
+        onClick={handleNext}
+        className="relative"
+        aria-label="Next painting"
+      >
         <ChevronRight
           className="absolute -top-16 -right-6 z-40 text-white"
           size={72}
