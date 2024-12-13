@@ -13,7 +13,6 @@
   - [ ] feature/6.3-contact-dialog
     - Contact dialog should be almost the same component that's in contact page
 - [ ] feature/7-portfolio-page
-- [ ] feature/8-order-page
 - [ ] feature/10-footer
 - [ ] feature/11-home-page
 - [ ] feature/11-dark-mode
@@ -24,7 +23,7 @@
 
 ### Working on
 
-- [ ] feature/9-contact-page
+- [ ] feature/8-order-page
 - [ ] feature/4-about-me-page
 
 #### Archived
@@ -33,6 +32,7 @@
   - [x] Navbar should stick to the top of the page on scroll
 - [x] feature/2-subpages-animations
 - [x] feature/3-art-slider
+- [x] feature/9-contact-page
 - [x] feature/12-fonts
 ## Bugs
 
