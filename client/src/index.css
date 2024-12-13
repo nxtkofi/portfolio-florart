@@ -40,7 +40,7 @@
 }
 
 #order-form {
-	@apply montserrat font-light p-16 background-tertiary w-[30rem] flex flex-col text-center
+	@apply montserrat font-light p-16 background-tertiary md:w-[30rem] flex flex-col text-center
 }
 
 .form-header {
