@@ -32,7 +32,7 @@ export function OrderPage(props: OrderPageProps): ReactElement {
           <div id="order-form">
             <div className="flex flex-row items-center">
               <div className="relative">
-                <MailOpen strokeWidth={0.75} size={64} />{" "}
+                <MailOpen strokeWidth={0.75} size={64} />
                 <AtSign className="absolute top-3 left-5 z-30" />
               </div>
               <p> Skontaktuj się ze mną</p>
