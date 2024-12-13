@@ -12,6 +12,7 @@ export function ContactPage(props: ContactPageProps): ReactElement {
       <img
         src="/Nagłówek/IMG_0926.JPG"
         className="absolute w-full h-full object-cover opacity-20"
+        
       />
 
       <div className="pt-16 pb-32 z-10">
