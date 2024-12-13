@@ -38,14 +38,12 @@
 
 ## Bugs
 ### Working on
-
-- [ ] fix/2-contact-order-background
-  - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
-
 #### Archived
 
  - [x] fix/1-slider-flickering 
  Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
+- [x] fix/2-contact-order-background
+  - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
 
 
 
