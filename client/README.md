@@ -24,7 +24,6 @@
 
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
-- [ ] feature/10-footer
 
 #### Archived
 
@@ -34,8 +33,12 @@
 - [x] feature/3-art-slider
 - [x] feature/8-order-page
 - [x] feature/9-contact-page
+- [x] feature/10-footer
 - [x] feature/12-fonts
 ## Bugs
+
+- [ ] fix/2-contact-order-background
+  - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
 
 ### Working on
 
