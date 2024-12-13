@@ -3,6 +3,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect, ReactElement } from "react";
 import { Navbar } from "./Navbar";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { Footer } from "./Footer";
 
 const PAGES_ORDER = [
   "/",
@@ -68,6 +69,7 @@ export default function Layout(): ReactElement {
       >
         <Outlet />
       </motion.div>
+      <Footer />
     </div>
   );
 }

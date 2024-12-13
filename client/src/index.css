@@ -48,7 +48,7 @@
 }
 
 body {
-	@apply min-h-[160vh] p-4 md:p-8
+	@apply p-4 md:p-8
 }
 
 .background-primary {
@@ -86,4 +86,16 @@ body {
 
 .slider-item {
 	@apply flex-shrink-0 basis-1/3 flex flex-col items-center text-center gap-2;
+}
+
+.footer {
+	@apply pt-40 flex flex-col items-center justify-center montserrat text-lg gap-y-4
+}
+
+.footer a p {
+	@apply ml-4
+}
+
+.footer a a {
+	@apply ml-4
 }
