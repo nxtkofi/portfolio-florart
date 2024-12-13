@@ -14,7 +14,7 @@
     - Contact dialog should be almost the same component that's in contact page
 - [ ] feature/7-portfolio-page
 - [ ] feature/11-home-page
-- [ ] feature/11-dark-mode
+- [ ] feature/12-dark-mode
   - To specify darkmode colors you can use 'dark:' prefix to certain classes.
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
