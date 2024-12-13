@@ -35,12 +35,12 @@
 - [x] feature/9-contact-page
 - [x] feature/10-footer
 - [x] feature/12-fonts
+
 ## Bugs
+### Working on
 
 - [ ] fix/2-contact-order-background
   - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
-
-### Working on
 
 #### Archived
 
