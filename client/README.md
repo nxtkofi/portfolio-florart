@@ -23,6 +23,7 @@
 ### Working on
 
 - [ ] feature/4-about-me-page
+  - [ ] mobile friendly
 - [ ] feature/10-footer
 
 #### Archived
