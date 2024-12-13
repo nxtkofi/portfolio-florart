@@ -15,7 +15,7 @@ export function Navbar(props: INavbar): ReactElement {
 
   useEffect(() => {
     const handleScroll = () => {
-      const threshold = biggerThanMd ? 252 : 158;
+      const threshold = biggerThanMd ? 256 : 158;
       setIsSticky(window.scrollY > threshold);
     };
 
@@ -23,12 +23,12 @@ export function Navbar(props: INavbar): ReactElement {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [biggerThanMd]); // Dodanie zależności
+  }, [biggerThanMd]);
 
   return (
     <div>
       <div
-        className={`flex navbar flex-col items-center justify-center bg-[#dbd7d3] h-36 md:h-56 ${isSticky ? "mb-16" : ""} relative`}
+        className={`flex navbar flex-col items-center justify-center bg-[#dbd7d3] h-36 md:h-56 ${isSticky ? "mb-16" : ""} relative z-50`}
       >
         <img
           src="/Nagłówek/IMG_0926.JPG"

@@ -21,6 +21,31 @@
 
 /* Fonts end*/
 
+#contact-form label {
+	@apply montserrat font-light text-lg;
+}
+
+
+#contact-form input {
+	@apply mt-2 rounded-2xl text-xl p-4 w-full mb-6;
+}
+
+#contact-form textarea {
+	@apply mt-2 rounded-2xl text-xl p-4 w-full mb-6;
+}
+
+
+#order-form div p {
+	@apply relative text-xl ml-4 py-8 text-center w-full
+}
+
+#order-form {
+	@apply montserrat font-light p-16 background-tertiary w-[30rem] flex flex-col text-center
+}
+
+.form-header {
+	@apply bg-[#faf9f9] montserrat font-light text-center text-3xl mb-8 md:w-fit w-full py-6 place-self-center text-primary
+}
 
 body {
 	@apply min-h-[160vh] p-4 md:p-8
