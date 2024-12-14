@@ -22,6 +22,7 @@
 
 ### Working on
 
+- [ ] feature/2.1-animations-fadeaway
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
