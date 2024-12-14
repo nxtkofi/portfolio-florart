@@ -19,7 +19,7 @@ export default function Layout(): ReactElement {
   const location = useLocation();
   const [chosenDirection, setChosenDirection] = useState<string>(
     location.pathname,
-  ); //value of NAVBARLINKS.path
+  );
   const [animationDirection, setAnimationDirection] = useState<
     "left" | "right"
   >("right");
