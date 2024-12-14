@@ -1,14 +1,10 @@
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
-import { ReactElement } from "react";
+import { useEffect, useState } from "react";
 import { LinksBar } from "./LinksBar";
 import { useNavigate } from "react-router";
 import { useMediaPredicate } from "react-media-hook";
 
-interface INavbar {
-  setDirection: Dispatch<SetStateAction<string>>;
-}
-
-export function Navbar(props: INavbar): ReactElement {
+export function Navbar() {
+  const [futurePath, setFuturePath] = useState<string>("");
   const biggerThanMd = useMediaPredicate("(min-width:768px)");
   const navigate = useNavigate();
   const [isSticky, setIsSticky] = useState(false);
@@ -39,6 +35,7 @@ export function Navbar(props: INavbar): ReactElement {
         </p>
         <button
           onClick={() => {
+            setFuturePath("/");
             navigate("/");
           }}
           aria-label="Button redirecting to home page"
@@ -58,7 +55,7 @@ export function Navbar(props: INavbar): ReactElement {
           isSticky ? "fixed shadow-md top-0 left-0 w-full px-8 z-10" : ""
         } bg-white `}
       >
-        <LinksBar setDirection={props.setDirection} />
+        <LinksBar setFuturePath={setFuturePath} futurePath={futurePath} />
       </div>
     </div>
   );

@@ -9,32 +9,66 @@ import { ContactPage } from "./pages/ContactPage";
 import { OrderPage } from "./pages/OrderPage";
 import { PortfolioPage } from "./pages/PortfolioPage";
 import { PaintingsPage } from "./pages/PaintingsPage";
+import { AnimatedLayout } from "./components/AnimatedLayout";
+import { AnimationDirProvider } from "./context/AnimationDirContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/about-me"
-            element={<AboutMePage children={undefined} />}
-          />
-          <Route
-            path="/paintings"
-            element={<PaintingsPage children={undefined} />}
-          />
-          <Route
-            path="/portfolio"
-            element={<PortfolioPage children={undefined} />}
-          />
-          <Route path="/order" element={<OrderPage children={undefined} />} />
-          <Route
-            path="/contact"
-            element={<ContactPage children={undefined} />}
-          />
-        </Route>
-      </Routes>
+      <AnimationDirProvider>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route
+              path="/"
+              element={
+                <AnimatedLayout>
+                  <HomePage />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/about-me"
+              element={
+                <AnimatedLayout>
+                  <AboutMePage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/paintings"
+              element={
+                <AnimatedLayout>
+                  <PaintingsPage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/portfolio"
+              element={
+                <AnimatedLayout>
+                  <PortfolioPage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/order"
+              element={
+                <AnimatedLayout>
+                  <OrderPage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <AnimatedLayout>
+                  <ContactPage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+          </Route>
+        </Routes>
+      </AnimationDirProvider>
     </BrowserRouter>
   </StrictMode>,
 );
