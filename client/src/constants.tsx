@@ -1,4 +1,4 @@
-import { ItemsType, NavbarLinkType } from "./types";
+import { ItemType, NavbarLinkType } from "./types";
 
 export const NAVBAR_LINKS: NavbarLinkType[] = [
   {
@@ -19,59 +19,40 @@ export const NAVBAR_LINKS: NavbarLinkType[] = [
     path: "/contact",
   },
 ];
-export const ITEMS: ItemsType[] = [
+
+export const ITEMS: ItemType[] = [
   {
     title: "Lodowiec",
     price: 140.0,
     photo: (
-      <>
-        <img src={"/lodowiec.jpg"} width={600} height={800} />
-      </>
+      <img className="zoomed-image" src="/2.Obrazy/Lodowiec/IMG_0907.JPG" />
     ),
   },
   {
     title: "Odpływ",
     price: 330.0,
-    photo: (
-      <>
-        <img src={"/odplyw.jpg"} width={600} height={800} />
-      </>
-    ),
+    photo: <img className="zoomed-image" src="/2.Obrazy/Odpływ/IMG_0896.JPG" />,
   },
   {
     title: "Linia",
     price: 90.0,
-    photo: (
-      <>
-        <img src={"/line.jpg"} width={600} height={800} />
-      </>
-    ),
+    photo: <img className="zoomed-image" src="/2.Obrazy/Linia/IMG_0908.JPG" />,
   },
   {
     title: "Plastikowe Żółwie",
     price: 2300.0,
     photo: (
-      <>
-        <img src={"/plastikowe.jpg"} width={600} height={800} />
-      </>
+      <img
+        className="zoomed-image"
+        src="/2.Obrazy/Plastikowe_żółwie/IMG_0916.JPG"
+      />
     ),
   },
   {
     title: "Śnieżka",
     price: 2300.0,
     photo: (
-      <>
-        <img src={"/sniezka.jpg"} width={600} height={800} />
-      </>
-    ),
-  },
-  {
-    title: "Vangog",
-    price: 2299.99,
-    photo: (
-      <>
-        <img src={"/vangog.webp"} />
-      </>
+      <img className="zoomed-image" src="/2.Obrazy/Śnieżka/IMG_0919.JPG" />
     ),
   },
 ];

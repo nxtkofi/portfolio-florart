@@ -1,43 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const ITEMS = [
-  {
-    title: "Lodowiec",
-    price: 140.0,
-    photo: (
-      <img className="zoomed-image" src="/2.Obrazy/Lodowiec/IMG_0907.JPG" />
-    ),
-  },
-  {
-    title: "Odpływ",
-    price: 330.0,
-    photo: <img className="zoomed-image" src="/2.Obrazy/Odpływ/IMG_0896.JPG" />,
-  },
-  {
-    title: "Linia",
-    price: 90.0,
-    photo: <img className="zoomed-image" src="/2.Obrazy/Linia/IMG_0908.JPG" />,
-  },
-  {
-    title: "Plastikowe Żółwie",
-    price: 2300.0,
-    photo: (
-      <img
-        className="zoomed-image"
-        src="/2.Obrazy/Plastikowe_żółwie/IMG_0916.JPG"
-      />
-    ),
-  },
-  {
-    title: "Śnieżka",
-    price: 2300.0,
-    photo: (
-      <img className="zoomed-image" src="/2.Obrazy/Śnieżka/IMG_0919.JPG" />
-    ),
-  },
-];
+import { ITEMS } from "../constants";
+import { PrimaryPainting } from "./PrimaryPainting";
 
 export function ArtSlider(): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
@@ -159,19 +124,12 @@ export function ArtSlider(): React.ReactElement {
               ? (isCenter = true)
               : (isCenter = false);
             return (
-              <div
-                key={index}
-                className={`slider-item transition-all duration-500 ${isCenter ? "scale-110" : "scale-90"}`}
-              >
-                <div className="flex flex-col mx-6 justify-center items-center gap-y-4">
-                  <div className="zoomed-image-container">{item.photo}</div>
-                  <PaintingLabel
-                    paintingName={item.title}
-                    price={item.price}
-                    redirectPath={""}
-                  />
-                </div>
-              </div>
+              <PrimaryPainting
+                use={"slider"}
+                item={item}
+                index={index}
+                isCenter={isCenter}
+              />
             );
           })}
         </div>
