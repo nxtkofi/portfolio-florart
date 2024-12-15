@@ -36,7 +36,7 @@
 
 
 #order-form div p {
-	@apply relative text-xl ml-4 py-8 text-center w-full
+	@apply relative text-xl ml-4 py-8 text-center w-full cursor-default
 }
 
 #order-form {

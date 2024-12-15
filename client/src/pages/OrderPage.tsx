@@ -1,11 +1,8 @@
 import { type ReactElement, type ReactNode } from "react";
 import { Wrapper } from "../components/Wrapper";
 import {
-  Mail,
   AtSign,
   MailOpen,
-  MessageSquare,
-  MessageSquareX,
   MessagesSquare,
   HandHelping,
   Coins,
@@ -35,7 +32,7 @@ export function OrderPage(props: OrderPageProps): ReactElement {
                 <MailOpen strokeWidth={0.75} size={64} />
                 <AtSign className="absolute top-3 left-5 z-30" />
               </div>
-              <p> Skontaktuj się ze mną</p>
+              <p>Skontaktuj się ze mną</p>
             </div>
             <div className="flex flex-row items-center">
               <div className="relative">
