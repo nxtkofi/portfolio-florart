@@ -5,6 +5,7 @@
 
 ## Features
 
+  - [ ]  feature/5.1-pagination
 - [ ] feature/6-single-painting-page
   - [ ] feature/6.1-image-gallery  
   - [ ] feature/6.2-art-description 
@@ -20,9 +21,6 @@
 
 ### Working on
 
-- [ ] feature/5-paintings-page
-  - [ ]  feature/5.1-pagination
-
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
@@ -33,6 +31,7 @@
 - [x] feature/2-subpages-animations
   - [x] feature/2.1-animations-fadeaway
 - [x] feature/3-art-slider
+- [x] feature/5-paintings-page
 - [x] feature/8-order-page
 - [x] feature/9-contact-page
 - [x] feature/10-footer
