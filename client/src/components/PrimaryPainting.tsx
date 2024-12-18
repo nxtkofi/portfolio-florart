@@ -2,6 +2,7 @@ import { type ReactElement } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 import { ItemType } from "../types";
 import { useNavigate } from "react-router";
+import { SINGLEPRODUCTPAGE } from "../apiroutes";
 
 export interface PrimaryPaintingProps {
   use: "slider" | "paintingspage";
@@ -13,7 +14,7 @@ export interface PrimaryPaintingProps {
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
   const navigate = useNavigate();
   const handleRedirect = () => {
-    navigate(props.item.path);
+    navigate(SINGLEPRODUCTPAGE + props.item.id);
   };
   if (props.use === "slider") {
     return (
@@ -30,7 +31,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           <PaintingLabel
             paintingName={props.item.title}
             price={props.item.price}
-            redirectPath={""}
+            allowRedirect={false}
           />
         </button>
       </div>
@@ -45,9 +46,10 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
         >
           <div className="zoomed-image-container">{props.item.photo}</div>
           <PaintingLabel
+            allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.
             paintingName={props.item.title}
             price={props.item.price}
-            redirectPath={""}
+            redirectPath={SINGLEPRODUCTPAGE + props.item.id}
           />
         </button>
       </div>

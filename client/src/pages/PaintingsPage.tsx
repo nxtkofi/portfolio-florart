@@ -10,9 +10,14 @@ export interface PaintingsPageProps {
 export function PaintingsPage(props: PaintingsPageProps): ReactElement {
   return (
     <Wrapper className="justify-center items-center">
-      <div className="mt-12">
+      <div className="md:mt-12 sm:mt-6">
         {ITEMS.map((item, index) => (
-          <PrimaryPainting use={"paintingspage"} item={item} index={index} />
+          <PrimaryPainting
+            key={index}
+            use={"paintingspage"}
+            item={item}
+            index={index}
+          />
         ))}
       </div>
     </Wrapper>

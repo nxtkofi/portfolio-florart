@@ -22,6 +22,7 @@ export const NAVBAR_LINKS: NavbarLinkType[] = [
 
 export const ITEMS: ItemType[] = [
   {
+    id: "124-bbsgd",
     title: "Lodowiec",
     price: 140.0,
     photo: (
@@ -29,16 +30,19 @@ export const ITEMS: ItemType[] = [
     ),
   },
   {
+    id: "124-bbsgc",
     title: "Odpływ",
     price: 330.0,
     photo: <img className="zoomed-image" src="/2.Obrazy/Odpływ/IMG_0896.JPG" />,
   },
   {
+    id: "124-bbsgx",
     title: "Linia",
     price: 90.0,
     photo: <img className="zoomed-image" src="/2.Obrazy/Linia/IMG_0908.JPG" />,
   },
   {
+    id: "124-bbsgm",
     title: "Plastikowe Żółwie",
     price: 2300.0,
     photo: (
@@ -49,6 +53,7 @@ export const ITEMS: ItemType[] = [
     ),
   },
   {
+    id: "124-bbsga",
     title: "Śnieżka",
     price: 2300.0,
     photo: (
