@@ -1,13 +1,9 @@
-import { type ReactElement, type ReactNode } from "react";
+import { type ReactElement } from "react";
 import { Wrapper } from "../components/Wrapper";
 import { ITEMS } from "../constants";
 import { PrimaryPainting } from "../components/PrimaryPainting";
 
-export interface PaintingsPageProps {
-  children: ReactNode;
-}
-
-export function PaintingsPage(props: PaintingsPageProps): ReactElement {
+export function PaintingsPage(): ReactElement {
   return (
     <Wrapper className="justify-center items-center">
       <div className="md:mt-12 sm:mt-6">

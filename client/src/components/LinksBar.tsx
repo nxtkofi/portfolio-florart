@@ -22,9 +22,10 @@ export function LinksBar(props: ILinksBar) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    let currentPathIndex = PAGES_ORDER.indexOf(location.pathname);
-    let futurePathIndex = PAGES_ORDER.indexOf(props.futurePath);
-    if (futurePathIndex > currentPathIndex) {
+    if (
+      PAGES_ORDER.indexOf(props.futurePath) >
+      PAGES_ORDER.indexOf(location.pathname)
+    ) {
       setDirection("right");
     } else setDirection("left");
   }, [props.futurePath]);

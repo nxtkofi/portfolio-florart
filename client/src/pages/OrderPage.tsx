@@ -1,4 +1,4 @@
-import { type ReactElement, type ReactNode } from "react";
+import { type ReactElement } from "react";
 import { Wrapper } from "../components/Wrapper";
 import {
   AtSign,
@@ -10,11 +10,7 @@ import {
   Brush,
 } from "lucide-react";
 
-export interface OrderPageProps {
-  children: ReactNode;
-}
-
-export function OrderPage(props: OrderPageProps): ReactElement {
+export function OrderPage(): ReactElement {
   return (
     <Wrapper className="!p-0 relative">
       <img

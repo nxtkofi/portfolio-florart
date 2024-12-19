@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import { PaintingLabel } from "./PaintingLabel";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ITEMS } from "../constants";
 import { PrimaryPainting } from "./PrimaryPainting";

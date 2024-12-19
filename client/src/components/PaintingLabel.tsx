@@ -10,7 +10,7 @@ export interface PaintingLabelProps {
 
 export function PaintingLabel(props: PaintingLabelProps): ReactElement {
   const navigate = useNavigate();
-  let PLN = new Intl.NumberFormat("pl-PL", {
+  const PLN = new Intl.NumberFormat("pl-PL", {
     style: "currency",
     currency: "PLN",
   });

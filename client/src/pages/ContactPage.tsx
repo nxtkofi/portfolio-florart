@@ -1,12 +1,8 @@
-import { type ReactElement, type ReactNode } from "react";
+import { type ReactElement } from "react";
 import { Wrapper } from "../components/Wrapper";
 import { ContactComponent } from "../components/ContactComponent";
 
-export interface ContactPageProps {
-  children: ReactNode;
-}
-
-export function ContactPage(props: ContactPageProps): ReactElement {
+export function ContactPage(): ReactElement {
   return (
     <Wrapper className="!p-0 relative">
       <img

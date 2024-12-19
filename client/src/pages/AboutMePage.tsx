@@ -1,11 +1,7 @@
-import { type ReactElement, type ReactNode } from "react";
+import { type ReactElement } from "react";
 import { Wrapper } from "../components/Wrapper";
 
-export interface AboutMePageProps {
-  children: ReactNode;
-}
-
-export function AboutMePage(props: AboutMePageProps): ReactElement {
+export function AboutMePage(): ReactElement {
   return (
     <>
       <img
