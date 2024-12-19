@@ -21,7 +21,6 @@
 
 ### Working on
 
-- [ ] perf/1-performance-improve
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
@@ -48,4 +47,8 @@
   - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
 
 
+## Improvements
+### Working on
+#### Archived
+- [x] perf/1-performance-improve
 
