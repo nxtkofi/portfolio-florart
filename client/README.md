@@ -21,6 +21,7 @@
 
 ### Working on
 
+- [ ] perf/1-performance-improve
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
