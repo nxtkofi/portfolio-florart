@@ -11,6 +11,7 @@ import { PortfolioPage } from "./pages/PortfolioPage";
 import { PaintingsPage } from "./pages/PaintingsPage";
 import { AnimatedLayout } from "./components/AnimatedLayout";
 import { AnimationDirProvider } from "./context/AnimationDirContext";
+import { ProductPage } from "./pages/ProductPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -63,6 +64,14 @@ createRoot(document.getElementById("root")!).render(
               element={
                 <AnimatedLayout>
                   <ContactPage children={undefined} />
+                </AnimatedLayout>
+              }
+            />
+            <Route
+              path="/product/:id"
+              element={
+                <AnimatedLayout>
+                  <ProductPage />
                 </AnimatedLayout>
               }
             />

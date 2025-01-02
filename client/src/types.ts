@@ -6,5 +6,7 @@ export type ItemType = {
   title: string;
   price: number;
   photo: ReactNode;
-  path: string;
+  subtitle: string;
+  instagramLink?: string;
+  /* path: string; */
 };
