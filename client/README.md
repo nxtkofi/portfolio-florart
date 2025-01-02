@@ -5,12 +5,11 @@
 
 ## Features
 
-  - [ ]  feature/5.1-pagination
-- [ ] feature/6-single-painting-page
-  - [ ] feature/6.1-image-gallery  
-  - [ ] feature/6.2-art-description 
-  - [ ] feature/6.3-contact-dialog
-    - Contact dialog should be almost the same component that's in contact page
+
+- [ ] feature/4-about-me-page
+  - [ ] mobile friendly
+
+  - [ ] feature/5.1-pagination
 - [ ] feature/7-portfolio-page
 - [ ] feature/11-home-page
 - [ ] feature/12-dark-mode
@@ -21,8 +20,12 @@
 
 ### Working on
 
-- [ ] feature/4-about-me-page
-  - [ ] mobile friendly
+
+- [ ] feature/6-single-painting-page
+  - [ ] feature/6.1-image-gallery  
+  - [ ] feature/6.2-art-description 
+  - [ ] feature/6.3-contact-dialog
+    - Contact dialog should be almost the same component that's in contact page
 
 #### Archived
 
