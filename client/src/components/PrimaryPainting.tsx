@@ -27,7 +27,13 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col mx-6 justify-center items-center gap-y-4"
         >
-          <div className="zoomed-image-container">{props.item.photo}</div>
+          <div className="zoomed-image-container">
+            <img
+              alt={"Image of title:" + props.item.title}
+              src={props.item.photo}
+              className="zoomed-image"
+            />
+          </div>
           <PaintingLabel
             paintingName={props.item.title}
             price={props.item.price}
