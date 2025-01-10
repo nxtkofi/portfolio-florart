@@ -50,7 +50,9 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col justify-center items-center gap-y-4 max-w-[34rem] mb-16"
         >
-          <div className="zoomed-image-container">{props.item.photo}</div>
+          <div className="zoomed-image-container">
+            <img src={props.item.photo} />
+          </div>
           <PaintingLabel
             allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.
             paintingName={props.item.title}
