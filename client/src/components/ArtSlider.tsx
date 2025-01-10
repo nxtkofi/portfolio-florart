@@ -5,6 +5,7 @@ import { PrimaryPainting } from "./PrimaryPainting";
 
 interface IArtSlider {
   chevronColor?: string;
+  labelColor?:string
 }
 export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
@@ -128,6 +129,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
               : (isCenter = false);
             return (
               <PrimaryPainting
+                labelColor={props.labelColor}
                 use={"slider"}
                 item={item}
                 index={index}

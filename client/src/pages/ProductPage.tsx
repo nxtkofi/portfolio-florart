@@ -34,7 +34,6 @@ export function ProductPage(): ReactElement {
                 { original: item.photo, thumbnail: item.photo },
               ]}
             />
-
             <SidePanel
               price={item.price}
               title={item.title}
@@ -45,7 +44,7 @@ export function ProductPage(): ReactElement {
         )}
       </div>
       <div className="mt-16 text-center text-4xl cormorant"> Zobacz też</div>
-      <ArtSlider chevronColor="#4a4b4e" />
+      <ArtSlider labelColor="#f2f0ef" chevronColor="#4a4b4e" />
     </>
   );
 }

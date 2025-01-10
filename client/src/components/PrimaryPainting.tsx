@@ -9,6 +9,7 @@ export interface PrimaryPaintingProps {
   item: ItemType;
   index: number;
   isCenter?: boolean;
+  labelColor?:string;
 }
 
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
@@ -35,6 +36,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
             />
           </div>
           <PaintingLabel
+            labelColor={props.labelColor}
             paintingName={props.item.title}
             price={props.item.price}
             allowRedirect={false}
@@ -54,6 +56,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
             <img src={props.item.photo} />
           </div>
           <PaintingLabel
+            labelColor={props.labelColor}
             allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.
             paintingName={props.item.title}
             price={props.item.price}
