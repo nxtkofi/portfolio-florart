@@ -22,8 +22,8 @@
 
 
 - [ ] feature/6-single-painting-page
-  - [ ] feature/6.1-image-gallery  
-  - [ ] feature/6.2-art-description 
+  - [x] feature/6.1-image-gallery  
+  - [x] feature/6.2-art-description 
   - [ ] feature/6.3-contact-dialog
     - Contact dialog should be almost the same component that's in contact page
 
