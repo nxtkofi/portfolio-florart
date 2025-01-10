@@ -16,7 +16,7 @@ export function ProductPage(): ReactElement {
   }, []);
   return (
     <>
-      <div className="background-primary p-8">
+      <div className="background-primary px-8 py-16">
         {item && (
           <div className="flex flex-row justify-center">
             <ImageGallery
