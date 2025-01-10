@@ -98,3 +98,20 @@ body {
 .footer a a {
 	@apply ml-4
 }
+
+.image-gallery-thumbnails-container {
+	@apply flex items-start
+}
+
+.image-gallery-thumbnail.active {
+	@apply !border-[#edebe9]
+}
+
+.image-gallery-thumbnail:focus {
+
+	@apply !border-[#f8f6f4]
+}
+
+.image-gallery-thumbnail:hover {
+	@apply !border-[#f8f6f4]
+}
