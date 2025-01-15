@@ -2,6 +2,7 @@ import { Circle, Instagram } from "lucide-react";
 import { useState, type ReactElement } from "react";
 import { convertToPLN } from "../helpers/convertToPLN";
 import { ContactForm } from "./ContactForm";
+import { AnimatePresence, motion } from "framer-motion";
 
 export interface SidePanelProps {
   title: string;
@@ -12,12 +13,30 @@ export interface SidePanelProps {
 
 export function SidePanel(props: SidePanelProps): ReactElement {
   const [popUpShown, setPopUpShown] = useState(false);
+
+  const popupVariants = {
+    hidden: { opacity: 0, x: -50, scale: 0.95 },
+    visible: { opacity: 1, x: 0, scale: 1, transition: { duration: 0.3 } },
+    exit: { opacity: 0, x: -50, scale: 0.95, transition: { duration: 0.2 } },
+  };
   const showPopUp = () => {
     setPopUpShown(!popUpShown);
   };
   return (
     <>
-      {popUpShown && <ContactForm isFloatingWindow className="absolute z-20" />}
+      <AnimatePresence>
+        {popUpShown && (
+          <motion.div
+            variants={popupVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="absolute z-20"
+          >
+            <ContactForm closeWindow={showPopUp} isFloatingWindow />
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="background-secondary py-4 px-6 w-fit h-fit mx-8">
         <p className="text-5xl cormorant">{props.title}</p>
         <p className="text-xl font-extralight whitespace-pre text-[#4a4b4e] alexandria">
