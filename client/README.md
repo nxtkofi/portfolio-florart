@@ -5,7 +5,6 @@
 
 ## Features
 
-
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
@@ -16,16 +15,18 @@
   - To specify darkmode colors you can use 'dark:' prefix to certain classes.
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
-
+- [ ] feature/10.1-footer-newsletter
 
 ### Working on
 
 
 - [ ] feature/6-single-painting-page
-  - [ ] feature/6.1-image-gallery  
-  - [ ] feature/6.2-art-description 
-  - [ ] feature/6.3-contact-dialog
+  - [x] feature/6.1-image-gallery  
+  - [x] feature/6.2-art-description 
+  - [x] feature/6.3-contact-dialog
     - Contact dialog should be almost the same component that's in contact page
+  - [ ] feature/6.4-reserve-painting-dialog
+    - This dialog should contain painting id in it's body and only have name/surname and contact information in it.
 
 #### Archived
 
