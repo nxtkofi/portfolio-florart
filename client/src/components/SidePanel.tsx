@@ -1,6 +1,7 @@
 import { Circle, Instagram } from "lucide-react";
-import { type ReactElement } from "react";
+import { useState, type ReactElement } from "react";
 import { convertToPLN } from "../helpers/convertToPLN";
+import { ContactForm } from "./ContactForm";
 
 export interface SidePanelProps {
   title: string;
@@ -10,49 +11,59 @@ export interface SidePanelProps {
 }
 
 export function SidePanel(props: SidePanelProps): ReactElement {
+  const [popUpShown, setPopUpShown] = useState(false);
+  const showPopUp = () => {
+    setPopUpShown(!popUpShown);
+  };
   return (
-    <div className="background-secondary py-4 px-6 w-fit h-fit mx-8">
-      <p className="text-5xl cormorant">{props.title}</p>
-      <p className="text-xl font-extralight whitespace-pre text-[#4a4b4e] alexandria">
-        {props.subtitle}
-      </p>
-      <div className="flex flex-col gap-y-4 mt-16 items-center">
-        <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 hover:">
-          Zarezerwuj teraz
-        </button>
-        <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2">
-          Zapytaj o obraz
-        </button>
-      </div>
-      {props.instagramLink && (
-        <div className="mt-6 underline justify-center items-center">
-          <a
-            target="_blank"
-            href="https://instagram.com/weronikaflorkow"
-            className="flex flex-row items-center text-[#4a4b4e]"
+    <>
+      {popUpShown && <ContactForm isFloatingWindow className="absolute z-20" />}
+      <div className="background-secondary py-4 px-6 w-fit h-fit mx-8">
+        <p className="text-5xl cormorant">{props.title}</p>
+        <p className="text-xl font-extralight whitespace-pre text-[#4a4b4e] alexandria">
+          {props.subtitle}
+        </p>
+        <div className="flex flex-col gap-y-4 mt-16 items-center">
+          <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 hover:">
+            Zarezerwuj teraz
+          </button>
+          <button
+            className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2"
+            onClick={() => showPopUp()}
           >
-            <div className="relative mr-2">
-              <Circle
-                size={48}
-                fill="#4a4b4e"
-                stroke="#4a4b4e"
-                strokeWidth={0.8}
-              />
-              <Instagram
-                stroke="#4a4b4e"
-                fill="#FBFBFB"
-                size={32}
-                strokeWidth={2}
-                className="absolute top-[0.5rem] left-[0.5rem]"
-              />
-            </div>
-            <p className="montserrat">Zobacz film na Instagramie</p>
-          </a>
+            Zapytaj o obraz
+          </button>
         </div>
-      )}
-      <p className="alexandria font-extralight text-3xl text-[#4a4b4e] mt-32">
-        {convertToPLN(props.price)}
-      </p>
-    </div>
+        {props.instagramLink && (
+          <div className="mt-6 underline justify-center items-center">
+            <a
+              target="_blank"
+              href="https://instagram.com/weronikaflorkow"
+              className="flex flex-row items-center text-[#4a4b4e]"
+            >
+              <div className="relative mr-2">
+                <Circle
+                  size={48}
+                  fill="#4a4b4e"
+                  stroke="#4a4b4e"
+                  strokeWidth={0.8}
+                />
+                <Instagram
+                  stroke="#4a4b4e"
+                  fill="#FBFBFB"
+                  size={32}
+                  strokeWidth={2}
+                  className="absolute top-[0.5rem] left-[0.5rem]"
+                />
+              </div>
+              <p className="montserrat">Zobacz film na Instagramie</p>
+            </a>
+          </div>
+        )}
+        <p className="alexandria font-extralight text-3xl text-[#4a4b4e] mt-32">
+          {convertToPLN(props.price)}
+        </p>
+      </div>
+    </>
   );
 }
