@@ -16,18 +16,14 @@
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 - [ ] feature/10.1-footer-newsletter
+- [ ] feature/13-product-page-api
+  - Create api endpoint and prepare data from front-end to be sent
+- [ ] feature/14-form-validation
+  - Create form validations for <ContactForm/> component
+- [ ] feature/15-turnstile
+  - Add Turnstile to <ContactForm/>
 
 ### Working on
-
-
-- [ ] feature/6-single-painting-page
-  - [x] feature/6.1-image-gallery  
-  - [x] feature/6.2-art-description 
-  - [x] feature/6.3-contact-dialog
-    - Contact dialog should be almost the same component that's in contact page
-  - [ ] feature/6.4-reserve-painting-dialog
-    - This dialog should contain painting id in it's body and only have name/surname and contact information in it.
-
 #### Archived
 
 - [x] feature/1-header-navbar #Assigned
@@ -36,6 +32,12 @@
   - [x] feature/2.1-animations-fadeaway
 - [x] feature/3-art-slider
 - [x] feature/5-paintings-page
+- [x] feature/6-single-painting-page
+  - [x] feature/6.1-image-gallery  
+  - [x] feature/6.2-art-description 
+  - [x] feature/6.3-contact-dialog
+    - Contact dialog should be almost the same component that's in contact page
+  - [x] feature/6.4-reserve-painting-dialog
 - [x] feature/8-order-page
 - [x] feature/9-contact-page
 - [x] feature/10-footer
@@ -49,7 +51,6 @@
  Art slider scale property causes a little flickering effect when jump to the end or to the begining of extendedItems is made.
 - [x] fix/2-contact-order-background
   - Contact/Order page: on Safari background doesn't seem to work well, it is greatly shifted to right side and doesn't cover a whole div.
-
 
 ## Improvements
 ### Working on

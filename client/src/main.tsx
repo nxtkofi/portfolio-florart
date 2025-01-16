@@ -12,71 +12,74 @@ import { PaintingsPage } from "./pages/PaintingsPage";
 import { AnimatedLayout } from "./components/AnimatedLayout";
 import { AnimationDirProvider } from "./context/AnimationDirContext";
 import { ProductPage } from "./pages/ProductPage";
+import { PopUpProvider } from "./context/PopUpContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <AnimationDirProvider>
-        <Routes>
-          <Route element={<Layout />}>
-            <Route
-              path="/"
-              element={
-                <AnimatedLayout>
-                  <HomePage />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/about-me"
-              element={
-                <AnimatedLayout>
-                  <AboutMePage children={undefined} />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/paintings"
-              element={
-                <AnimatedLayout>
-                  <PaintingsPage children={undefined} />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/portfolio"
-              element={
-                <AnimatedLayout>
-                  <PortfolioPage children={undefined} />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/order"
-              element={
-                <AnimatedLayout>
-                  <OrderPage children={undefined} />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/contact"
-              element={
-                <AnimatedLayout>
-                  <ContactPage children={undefined} />
-                </AnimatedLayout>
-              }
-            />
-            <Route
-              path="/product/:id"
-              element={
-                <AnimatedLayout>
-                  <ProductPage />
-                </AnimatedLayout>
-              }
-            />
-          </Route>
-        </Routes>
+        <PopUpProvider>
+          <Routes>
+            <Route element={<Layout />}>
+              <Route
+                path="/"
+                element={
+                  <AnimatedLayout>
+                    <HomePage />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/about-me"
+                element={
+                  <AnimatedLayout>
+                    <AboutMePage children={undefined} />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/paintings"
+                element={
+                  <AnimatedLayout>
+                    <PaintingsPage children={undefined} />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/portfolio"
+                element={
+                  <AnimatedLayout>
+                    <PortfolioPage children={undefined} />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/order"
+                element={
+                  <AnimatedLayout>
+                    <OrderPage children={undefined} />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <AnimatedLayout>
+                    <ContactPage children={undefined} />
+                  </AnimatedLayout>
+                }
+              />
+              <Route
+                path="/product/:id"
+                element={
+                  <AnimatedLayout>
+                    <ProductPage />
+                  </AnimatedLayout>
+                }
+              />
+            </Route>
+          </Routes>
+        </PopUpProvider>
       </AnimationDirProvider>
     </BrowserRouter>
   </StrictMode>,
