@@ -28,7 +28,7 @@ export function Navbar() {
       >
         <img
           src="/Nagłówek/IMG_0926.JPG"
-          className="absolute w-full h-full object-cover opacity-20"
+          className="absolute w-full h-full object-cover opacity-20 z-0"
         />
         <p className="cormorant font-bold absolute text-10xl md:text-11xl leading-3 text-white opacity-50 md:bottom-32 md:mb-0 mb-8">
           WF

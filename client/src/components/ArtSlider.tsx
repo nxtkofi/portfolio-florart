@@ -3,7 +3,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ITEMS } from "../constants";
 import { PrimaryPainting } from "./PrimaryPainting";
 
-export function ArtSlider(): React.ReactElement {
+interface IArtSlider {
+  chevronColor?: string;
+  labelColor?:string
+}
+export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
   const extendedItems = [
@@ -111,7 +115,8 @@ export function ArtSlider(): React.ReactElement {
         aria-label="Previous painting"
       >
         <ChevronLeft
-          className="absolute z-10 text-white -top-16 -left-6"
+          color={props.chevronColor || "white"}
+          className="absolute z-10 -top-16 -left-6"
           size={72}
         />
       </button>
@@ -124,6 +129,7 @@ export function ArtSlider(): React.ReactElement {
               : (isCenter = false);
             return (
               <PrimaryPainting
+                labelColor={props.labelColor}
                 use={"slider"}
                 item={item}
                 index={index}
@@ -139,7 +145,8 @@ export function ArtSlider(): React.ReactElement {
         aria-label="Next painting"
       >
         <ChevronRight
-          className="absolute -top-16 -right-6 z-40 text-white"
+          color={props.chevronColor || "white"}
+          className="absolute -top-16 -right-6 z-40"
           size={72}
         />
       </button>

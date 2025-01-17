@@ -9,6 +9,7 @@ export interface PrimaryPaintingProps {
   item: ItemType;
   index: number;
   isCenter?: boolean;
+  labelColor?:string;
 }
 
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
@@ -27,8 +28,15 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col mx-6 justify-center items-center gap-y-4"
         >
-          <div className="zoomed-image-container">{props.item.photo}</div>
+          <div className="zoomed-image-container">
+            <img
+              alt={"Image of title:" + props.item.title}
+              src={props.item.photo}
+              className="zoomed-image"
+            />
+          </div>
           <PaintingLabel
+            labelColor={props.labelColor}
             paintingName={props.item.title}
             price={props.item.price}
             allowRedirect={false}
@@ -44,8 +52,11 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col justify-center items-center gap-y-4 max-w-[34rem] mb-16"
         >
-          <div className="zoomed-image-container">{props.item.photo}</div>
+          <div className="zoomed-image-container">
+            <img src={props.item.photo} />
+          </div>
           <PaintingLabel
+            labelColor={props.labelColor}
             allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.
             paintingName={props.item.title}
             price={props.item.price}
