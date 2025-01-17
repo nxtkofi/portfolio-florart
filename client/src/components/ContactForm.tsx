@@ -1,5 +1,5 @@
 import { XIcon } from "lucide-react";
-import { ReactElement } from "react";
+import { ChangeEvent, ReactElement, useEffect, useState } from "react";
 
 export interface ContactFormProps {
   isReserve?: boolean;
@@ -7,8 +7,34 @@ export interface ContactFormProps {
   className?: string;
   closeWindow?: () => void;
 }
+type FormValuesType = {
+  name?: string;
+  email?: string;
+  message?: string;
+  phone?: string;
+};
 
 export function ContactForm(props: ContactFormProps): ReactElement {
+  const [formValues, setFormValues] = useState<FormValuesType>({
+    name: "",
+    email: "",
+    message: "",
+    phone: "",
+  });
+
+  function onInputChange(
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    fieldName: keyof FormValuesType,
+  ): void {
+    const value = e.target.value;
+    setFormValues((prev) => {
+      return {
+        ...prev,
+        [fieldName]: value,
+      };
+    });
+  }
+
   return (
     <>
       <div
@@ -36,26 +62,50 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             <b className="text-red-500">*</b> Imię:
           </label>
           <br />
-          <input name="name" type="text" />
+          <input
+            required
+            name="name"
+            value={formValues.name}
+            onChange={(e) => onInputChange(e, "name")}
+            type="text"
+          />
           <label htmlFor="email">
             <b className="text-red-500">*</b> Adres e-mail:
           </label>
           <br />
-          <input name="email" type="email" />
+          <input
+            required
+            name="email"
+            value={formValues.email}
+            onChange={(e) => onInputChange(e, "email")}
+            type="email"
+          />
 
           {!props.isReserve ? (
             <>
               <label htmlFor="message">
                 <b className="text-red-500">*</b> Wiadomość:
               </label>
-              <textarea name="message" rows={7}></textarea>
+              <textarea
+                required={!props.isReserve}
+                name="message"
+                value={formValues.message}
+                onChange={(e) => onInputChange(e, "message")}
+                rows={7}
+              ></textarea>
             </>
           ) : (
             <>
               <label htmlFor="phone">
                 <b className="text-red-500">*</b> Numer telefonu:
               </label>
-              <input name="phone" type="tel" />
+              <input
+                required
+                name="phone"
+                value={formValues.phone}
+                onChange={(e) => onInputChange(e, "phone")}
+                type="tel"
+              />
             </>
           )}
           <div className="flex flex-col items-center justify-center">
