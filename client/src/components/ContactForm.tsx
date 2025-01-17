@@ -1,5 +1,5 @@
 import { XIcon } from "lucide-react";
-import { ChangeEvent, ReactElement, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
 
 export interface ContactFormProps {
   isReserve?: boolean;
@@ -8,13 +8,14 @@ export interface ContactFormProps {
   closeWindow?: () => void;
 }
 type FormValuesType = {
-  name?: string;
-  email?: string;
+  name: string;
+  email: string;
   message?: string;
   phone?: string;
 };
 
 export function ContactForm(props: ContactFormProps): ReactElement {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formValues, setFormValues] = useState<FormValuesType>({
     name: "",
     email: "",
@@ -33,6 +34,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
         [fieldName]: value,
       };
     });
+  }
+
+  function submitForm(e: FormEvent<HTMLFormElement>): void {
+    e.preventDefault();
+    setIsLoading(true);
   }
 
   return (
@@ -55,6 +61,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           </div>
         )}
         <form
+          onSubmit={(e) => submitForm(e)}
           id="contact-form"
           className={`background-tertiary md:p-16 p-8 w-full md:w-[32rem] ${props.isFloatingWindow ? "!pt-8" : ""}`}
         >
@@ -115,11 +122,14 @@ export function ContactForm(props: ContactFormProps): ReactElement {
                 2 dni roboczych
               </p>
             )}
-            <button
-              type="submit"
-              className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 hover:"
-            >
-              {props.isReserve ? "Zarezerwuj teraz" : "Wyślij"}
+            <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 items-center flex justify-center ">
+              {isLoading ? (
+                <span className="loader"></span>
+              ) : props.isReserve ? (
+                "Zarezerwuj teraz"
+              ) : (
+                "Wyślij"
+              )}
             </button>
           </div>
         </form>
