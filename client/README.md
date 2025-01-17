@@ -18,12 +18,14 @@
 - [ ] feature/10.1-footer-newsletter
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent
-- [ ] feature/14-form-validation
-  - Create form validations for <ContactForm/> component
 - [ ] feature/15-turnstile
   - Add Turnstile to <ContactForm/>
 
 ### Working on
+
+- [ ] feature/14-form-validation
+  - Create form validations for <ContactForm/> component
+
 #### Archived
 
 - [x] feature/1-header-navbar #Assigned
