@@ -122,7 +122,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
                 2 dni roboczych
               </p>
             )}
-            <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 items-center flex justify-center ">
+            <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 items-center flex justify-center">
               {isLoading ? (
                 <span className="loader"></span>
               ) : props.isReserve ? (
