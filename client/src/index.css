@@ -215,3 +215,7 @@ body {
 		transform: rotate(-360deg);
 	}
 }
+
+button {
+	@apply hover:opacity-80 transition-opacity duration-200 ease-in-out;
+}
