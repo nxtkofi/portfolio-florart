@@ -219,3 +219,7 @@ body {
 button {
 	@apply hover:opacity-80 transition-opacity duration-200 ease-in-out;
 }
+
+a {
+	@apply opacity-100 hover:opacity-80 transition-opacity duration-200 ease-in-out;
+}
