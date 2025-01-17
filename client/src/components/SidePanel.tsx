@@ -19,7 +19,7 @@ export function SidePanel(props: SidePanelProps): ReactElement {
   return (
     <>
       <div className="background-secondary py-4 px-6 w-fit h-fit mx-8">
-        <p className="text-5xl cormorant">{props.title}</p>
+        <p className="text-5xl font-unna font-light mb-2">{props.title}</p>
         <p className="text-xl font-extralight whitespace-pre text-[#4a4b4e] alexandria">
           {props.subtitle}
         </p>

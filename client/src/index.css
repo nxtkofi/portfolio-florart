@@ -18,10 +18,74 @@
 	font-optical-sizing: auto;
 }
 
-.unna {
-	font-family: "Unna", serif;
-	font-optical-sizing: auto;
+/* font face for unna */
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-Regular.otf') format('opentype');
+	font-weight: 400;
+	/* Regular */
+	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-Bold.otf') format('opentype');
+	font-weight: 700;
+	/* Bold */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-BoldItalic.otf') format('opentype');
+	font-weight: 700;
+	/* Bold */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-Italic.otf') format('opentype');
+	font-weight: 400;
+	/* Regular */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-Light.otf') format('opentype');
+	font-weight: 300;
+	/* Light */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-LightItalic.otf') format('opentype');
+	font-weight: 300;
+	/* Light */
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-Medium.otf') format('opentype');
+	font-weight: 500;
+	/* Medium */
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Unna';
+	src: url('/fonts/unna/Unna-MediumItalic.otf') format('opentype');
+	font-weight: 500;
+	/* Medium */
+	font-style: italic;
+}
+
+/* font face for unna end*/
+
 /* Fonts end*/
 
 #contact-form label {
