@@ -23,7 +23,7 @@
 
 ### Working on
 
-- [ ] feature/14-form-validation
+- [x] feature/14-form-validation
   - Create form validations for <ContactForm/> component
 
 #### Archived
