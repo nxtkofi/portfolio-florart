@@ -9,8 +9,15 @@ import {
   Palette,
   Brush,
 } from "lucide-react";
+import { usePopUp } from "../hooks/usePopUp";
 
 export function OrderPage(): ReactElement {
+  const { popUpShown, setPopUpShown } = usePopUp();
+
+  const showPopUp = () => {
+    setPopUpShown(!popUpShown);
+  };
+
   return (
     <Wrapper className="!p-0 relative">
       <img
@@ -23,13 +30,21 @@ export function OrderPage(): ReactElement {
             Zamów swój wymarzony obraz już teraz
           </div>
           <div id="order-form">
-            <div className="flex flex-row items-center">
-              <div className="relative">
-                <MailOpen strokeWidth={0.75} size={64} />
-                <AtSign className="absolute top-3 left-5 z-30" />
+            <button
+              className="!cursor-pointer"
+              onClick={() => {
+                showPopUp();
+              }}
+            >
+              <div className="flex flex-row items-center">
+                <div className="relative">
+                  <MailOpen strokeWidth={0.75} size={64} />
+                  <AtSign className="absolute top-3 left-5 z-30" />
+                </div>
+                <p className="underline">Skontaktuj się ze mną</p>
               </div>
-              <p>Skontaktuj się ze mną</p>
-            </div>
+            </button>
+
             <div className="flex flex-row items-center">
               <div className="relative">
                 <MessagesSquare strokeWidth={0.75} size={64} />
