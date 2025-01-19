@@ -8,7 +8,7 @@ export interface WrapperProps {
 export function Wrapper(props: WrapperProps): ReactElement {
   return (
     <div
-      className={`background-primary p-4 flex flex-col ${props.className ? props.className : ""}`}
+      className={`wrapper background-primary p-4 flex flex-col ${props.className ? props.className : ""}`}
     >
       {props.children}
     </div>
