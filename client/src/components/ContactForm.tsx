@@ -1,5 +1,12 @@
+import validator from "validator";
 import { XIcon } from "lucide-react";
-import { ChangeEvent, FormEvent, ReactElement, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  ReactElement,
+  useEffect,
+  useState,
+} from "react";
 
 export interface ContactFormProps {
   isReserve?: boolean;
@@ -7,6 +14,7 @@ export interface ContactFormProps {
   className?: string;
   closeWindow?: () => void;
 }
+
 type FormValuesType = {
   name: string;
   email: string;
@@ -15,6 +23,7 @@ type FormValuesType = {
 };
 
 export function ContactForm(props: ContactFormProps): ReactElement {
+  const [allowSend, setAllowSend] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [formValues, setFormValues] = useState<FormValuesType>({
     name: "",
@@ -27,7 +36,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     fieldName: keyof FormValuesType,
   ): void {
-    const value = e.target.value;
+    const value = e.target.value.replace("  ", " ");
     setFormValues((prev) => {
       return {
         ...prev,
@@ -40,6 +49,41 @@ export function ContactForm(props: ContactFormProps): ReactElement {
     e.preventDefault();
     setIsLoading(true);
   }
+
+  useEffect(() => {
+    switch (props.isReserve) {
+      case true:
+        if (
+          formValues.name &&
+          formValues.email &&
+          formValues.phone &&
+          formValues.name.length > 0 &&
+          validator.isEmail(formValues.email) &&
+          validator.isMobilePhone(formValues.phone, "pl-PL")
+        ) {
+          setAllowSend(true);
+        } else {
+          setAllowSend(false);
+        }
+        break;
+      case false:
+        if (
+          formValues.name &&
+          formValues.email &&
+          formValues.message &&
+          formValues.name.length > 0 &&
+          validator.isEmail(formValues.email) &&
+          formValues.message.length > 5
+        ) {
+          setAllowSend(true);
+        } else {
+          setAllowSend(false);
+        }
+        break;
+      default:
+        setAllowSend(false);
+    }
+  }, [formValues]);
 
   return (
     <>
@@ -87,7 +131,6 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             onChange={(e) => onInputChange(e, "email")}
             type="email"
           />
-
           {!props.isReserve ? (
             <>
               <label htmlFor="message">
@@ -122,7 +165,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
                 2 dni roboczych
               </p>
             )}
-            <button className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 items-center flex justify-center">
+            <button
+              className={`w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 items-center flex justify-center 
+              ${!allowSend ? "cursor-not-allowed opacity-70" : ""}`}
+              disabled={!allowSend}
+            >
               {isLoading ? (
                 <span className="loader"></span>
               ) : props.isReserve ? (
