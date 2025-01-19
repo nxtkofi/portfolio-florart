@@ -1,10 +1,6 @@
 import { type ReactElement } from "react";
 
-export interface PhotoGalleryProps {
-  /* children: ReactNode */
-}
-
-export function PhotoGallery(props: PhotoGalleryProps): ReactElement {
+export function PhotoGallery(): ReactElement {
   return (
     <>
       <div className="grid grid-cols-2 gap-4 mt-4">
