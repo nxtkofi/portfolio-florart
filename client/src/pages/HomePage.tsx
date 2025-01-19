@@ -33,7 +33,7 @@ export default function HomePage() {
       <div className="background-secondary montserrat font-extralight text-center text-3xl my-8 md:w-fit md:px-48 w-full py-6 place-self-center text-primary">
         Poznaj moją twórczość
       </div>
-      <div className="w-full flex items-center justify-center">
+      <div className="flex items-center justify-center -mx-[26px] sm:-mx-0">
         <ArtSlider />
       </div>
     </Wrapper>

@@ -5,7 +5,7 @@ import { PrimaryPainting } from "./PrimaryPainting";
 
 interface IArtSlider {
   chevronColor?: string;
-  labelColor?:string
+  labelColor?: string;
 }
 export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
@@ -107,16 +107,17 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   useEffect(() => {
     console.log(currentIndex);
   }, [currentIndex]);
+
   return (
     <div className="slider-container">
       <button
         onClick={handlePrevious}
-        className="relative"
+        className="relative z-50"
         aria-label="Previous painting"
       >
         <ChevronLeft
           color={props.chevronColor || "white"}
-          className="absolute z-10 -top-16 -left-6"
+          className="absolute z-[30] -top-16 -left-6"
           size={72}
         />
       </button>
@@ -146,7 +147,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
       >
         <ChevronRight
           color={props.chevronColor || "white"}
-          className="absolute -top-16 -right-6 z-40"
+          className="absolute -top-16 -right-6 z-30"
           size={72}
         />
       </button>
