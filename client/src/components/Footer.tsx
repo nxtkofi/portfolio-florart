@@ -11,14 +11,14 @@ export function Footer(): ReactElement {
   return (
     <div className="footer">
       <a className="flex flex-row items-center cursor-default">
-        <Globe size={36} strokeWidth={1} />
+        <Globe size={36} strokeWidth={1} className="-ml-6" />
         <p className="ml-4">Weronika Florków</p>
       </a>
       <a
         className="flex flex-row items-center"
         href="mailto:weronika.florkow@gmail.com"
       >
-        <div className="relative">
+        <div className="relative -ml-6">
           <Circle size={48} strokeWidth={0.8} />
           <Mail
             stroke="#ffffff"
@@ -30,25 +30,12 @@ export function Footer(): ReactElement {
         </div>
         <p>weronika.florkow@gmail.com</p>
       </a>
-      <a href="tel:+48508564555" className="flex flex-row items-center">
-        <div className="relative">
-          <Circle size={48} strokeWidth={0.8} />
-          <PhoneCall
-            stroke="#ffffff"
-            fill="00000"
-            size={28}
-            strokeWidth={0.1}
-            className="absolute top-[0.7rem] left-[0.625rem]"
-          />
-        </div>
-        <p>+48 508 564 555</p>
-      </a>
       <a
         target="_blank"
         href="https://instagram.com/weronikaflorkow"
         className="flex flex-row items-center"
       >
-        <div className="relative">
+        <div className="relative -ml-6">
           <Circle size={48} strokeWidth={0.8} />
           <Instagram
             stroke="#ffffff"
@@ -60,6 +47,20 @@ export function Footer(): ReactElement {
         </div>
         <p>@weronikaflorkow</p>
       </a>
+      <a href="tel:+48508564555" className="flex flex-row items-center">
+        <div className="relative -ml-6">
+          <Circle size={48} strokeWidth={0.8} />
+          <PhoneCall
+            stroke="#ffffff"
+            fill="00000"
+            size={28}
+            strokeWidth={0.1}
+            className="absolute top-[0.7rem] left-[0.625rem]"
+          />
+        </div>
+        <p>+48 508 564 555</p>
+      </a>
+
       <div className="-mb-8 mt-8 flex flex-col font-light alexandria text-sm text-center cursor-default">
         <p>Design by Weronika Florków</p>
         <a
