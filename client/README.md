@@ -23,6 +23,9 @@
 
 ### Working on
 
+- [ ] feature/3-art-slider-enhancements
+  - Make slider work on smaller devices
+  - Add finger-swiping feature
 
 
 #### Archived
