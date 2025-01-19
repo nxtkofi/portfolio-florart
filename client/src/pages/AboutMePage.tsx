@@ -33,6 +33,8 @@ export function AboutMePage(): ReactElement {
           </div>
         </div>
       </Wrapper>
+      <PhotoGallery></PhotoGallery>
+
     </>
   );
 }
