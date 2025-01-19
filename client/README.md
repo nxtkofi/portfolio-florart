@@ -11,20 +11,19 @@
   - [ ] feature/5.1-pagination
 - [ ] feature/7-portfolio-page
 - [ ] feature/11-home-page
-- [ ] feature/12-dark-mode
-  - To specify darkmode colors you can use 'dark:' prefix to certain classes.
-  - Dark mode will be turned on when you add 'dark' to your <html> tag.
-  - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 - [ ] feature/10.1-footer-newsletter
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent
 - [ ] feature/15-turnstile
   - Add Turnstile to <ContactForm/>
+- [ ] feature/16-dark-mode
+  - To specify darkmode colors you can use 'dark:' prefix to certain classes.
+  - Dark mode will be turned on when you add 'dark' to your <html> tag.
+  - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 
 ### Working on
 
-- [x] feature/14-form-validation
-  - Create form validations for <ContactForm/> component
+
 
 #### Archived
 
@@ -44,6 +43,8 @@
 - [x] feature/9-contact-page
 - [x] feature/10-footer
 - [x] feature/12-fonts
+- [x] feature/14-form-validation
+  - Create form validations for <ContactForm/> component
 
 ## Bugs
 ### Working on
