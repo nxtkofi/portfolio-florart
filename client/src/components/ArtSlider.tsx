@@ -7,9 +7,15 @@ interface IArtSlider {
   chevronColor?: string;
   labelColor?: string;
 }
+
 export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+  const [currentTranslate, setCurrentTranslate] = useState(33.33);
+  const [containerWidth, setContainerWidth] = useState(0);
+
   const extendedItems = [
     ITEMS[ITEMS.length - 2],
     ITEMS[ITEMS.length - 1],
@@ -18,14 +24,70 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
     ITEMS[1],
     ITEMS[2],
   ];
+
   const [scaleManage, setScaleManage] = useState<boolean[]>(
-    extendedItems.map((_, index) => {
-      if (currentIndex === index) return true;
-      else return false;
-    }),
+    extendedItems.map((_, index) => currentIndex === index),
   );
 
   const sliderRef = useRef<HTMLDivElement>(null);
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (isAnimating) return;
+
+    e.preventDefault();
+    const touch = e.touches[0];
+    setTouchStartX(touch.clientX);
+    setTouchEndX(touch.clientX);
+
+    if (sliderContainerRef.current) {
+      setContainerWidth(sliderContainerRef.current.offsetWidth);
+    }
+
+    setCurrentTranslate((currentIndex - 1) * 33.33);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStartX || isAnimating) return;
+
+    e.preventDefault();
+    const currentX = e.touches[0].clientX;
+    setTouchEndX(currentX);
+
+    const diff = touchStartX - currentX;
+    const percentMove = (diff / containerWidth) * 100;
+    const newTranslate = currentTranslate + percentMove;
+
+    if (sliderRef.current) {
+      sliderRef.current.style.transition = "none";
+      sliderRef.current.style.transform = `translateX(-${newTranslate}%)`;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX || isAnimating) return;
+
+    const diff = touchStartX - touchEndX;
+    const percentMove = (diff / containerWidth) * 100;
+    const threshold = 15;
+
+    if (Math.abs(percentMove) > threshold) {
+      if (percentMove > 0) {
+        handleNext();
+      } else {
+        handlePrevious();
+      }
+    } else {
+      // Return to original position if swipe wasn't strong enough
+      if (sliderRef.current) {
+        sliderRef.current.style.transition = "transform 0.3s ease-in-out";
+        sliderRef.current.style.transform = `translateX(-${currentTranslate}%)`;
+      }
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
 
   const handleNext = () => {
     if (!isAnimating) {
@@ -41,7 +103,6 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           updatedArray[newIndex] = true;
           return updatedArray;
         });
-
         return newIndex;
       });
     }
@@ -61,7 +122,6 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           updatedArray[newIndex] = true;
           return updatedArray;
         });
-
         return newIndex;
       });
     }
@@ -69,7 +129,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
 
   useEffect(() => {
     if (sliderRef.current) {
-      sliderRef.current.style.transition = "none"; // Bez animacji przy inicjalizacji
+      sliderRef.current.style.transition = "none";
       sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
     }
   }, []);
@@ -79,19 +139,27 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
       const timeout = setTimeout(() => {
         setIsAnimating(false);
         if (currentIndex === 1) {
-          setScaleManage((prevArr) => [...prevArr, (prevArr[1] = false)]);
-
+          setScaleManage((prevArr) => {
+            const newArr = [...prevArr];
+            newArr[1] = false;
+            return newArr;
+          });
           setCurrentIndex(ITEMS.length + 1);
-          sliderRef.current!.style.transition = "none";
-          sliderRef.current!.style.transform = `translateX(-${ITEMS.length * 33.33}%)`;
+          if (sliderRef.current) {
+            sliderRef.current.style.transition = "none";
+            sliderRef.current.style.transform = `translateX(-${ITEMS.length * 33.33}%)`;
+          }
         } else if (currentIndex === extendedItems.length - 3) {
-          setScaleManage((prevArr) => [
-            ...prevArr,
-            (prevArr[extendedItems.length - 3] = false),
-          ]);
+          setScaleManage((prevArr) => {
+            const newArr = [...prevArr];
+            newArr[extendedItems.length - 3] = false;
+            return newArr;
+          });
           setCurrentIndex(2);
-          sliderRef.current!.style.transition = "none";
-          sliderRef.current!.style.transform = `translateX(-33.33%)`;
+          if (sliderRef.current) {
+            sliderRef.current.style.transition = "none";
+            sliderRef.current.style.transform = `translateX(-33.33%)`;
+          }
         }
       }, 500);
       return () => clearTimeout(timeout);
@@ -100,13 +168,11 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
 
   useEffect(() => {
     if (!isAnimating) return;
-    sliderRef.current!.style.transition = "transform 0.5s ease-in-out";
-    sliderRef.current!.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
+    if (sliderRef.current) {
+      sliderRef.current.style.transition = "transform 0.5s ease-in-out";
+      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
+    }
   }, [currentIndex, isAnimating]);
-
-  useEffect(() => {
-    console.log(currentIndex);
-  }, [currentIndex]);
 
   return (
     <div className="slider-container">
@@ -121,23 +187,24 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           size={72}
         />
       </button>
-      <div className="slider py-16">
-        <div ref={sliderRef} className="slider-track">
-          {extendedItems.map((item, index) => {
-            let isCenter: boolean;
-            scaleManage[index] === true
-              ? (isCenter = true)
-              : (isCenter = false);
-            return (
-              <PrimaryPainting
-                labelColor={props.labelColor}
-                use={"slider"}
-                item={item}
-                index={index}
-                isCenter={isCenter}
-              />
-            );
-          })}
+      <div className="slider py-16" ref={sliderContainerRef}>
+        <div
+          ref={sliderRef}
+          className="slider-track"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {extendedItems.map((item, index) => (
+            <PrimaryPainting
+              key={index}
+              labelColor={props.labelColor}
+              use={"slider"}
+              item={item}
+              index={index}
+              isCenter={scaleManage[index]}
+            />
+          ))}
         </div>
       </div>
       <button

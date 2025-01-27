@@ -141,6 +141,7 @@ body {
 
 .slider-container {
 	@apply flex items-center justify-center md:gap-4 w-full overflow-hidden relative;
+	touch-action: pan-y pinch-zoom;
 }
 
 .slider {
@@ -149,6 +150,7 @@ body {
 
 .slider-track {
 	@apply flex transition-transform ease-in-out duration-500 will-change-transform;
+	touch-action: pan-x;
 }
 
 .slider-item {
