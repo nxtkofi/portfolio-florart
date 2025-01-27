@@ -11,12 +11,7 @@ export default function HomePage() {
     };
     grabUsers();
   });
-
-  {
-    /**
-     * TODO: Remove below
-     */
-  }
+  
   const loginAsAdmin = async () => {
     const authData = await pb
       .collection("users")
