@@ -5,6 +5,13 @@
 
 ## Features
 
+- [>] feature/3-art-slider-enhancements
+  - ~~Make slider work on smaller devices~~
+  - ~~Add finger-swiping feature~~
+  - Current workaround is: slider gets smaller and smaller. What I want to achieve long-term would be the following:
+    - The slider displays 3 images (just like now) on screens that are > 640px
+    - The slider displays 1 image on screens that are ≤ 640px
+
 - [ ] feature/4-about-me-page
   - [ ] mobile friendly
 
@@ -23,12 +30,10 @@
 
 ### Working on
 
-- [ ] feature/3-art-slider-enhancements
-  - Make slider work on smaller devices
-  - Add finger-swiping feature
 
 
 #### Archived
+
 
 - [x] feature/1-header-navbar #Assigned
   - [x] Navbar should stick to the top of the page on scroll

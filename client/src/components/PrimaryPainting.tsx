@@ -9,7 +9,7 @@ export interface PrimaryPaintingProps {
   item: ItemType;
   index: number;
   isCenter?: boolean;
-  labelColor?:string;
+  labelColor?: string;
 }
 
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
@@ -26,7 +26,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
         <button
           aria-label={`Navigate to ${props.item.title} subpage.`}
           onClick={handleRedirect}
-          className="flex flex-col mx-6 justify-center items-center gap-y-4"
+          className="flex flex-col lg:mx-6 mx-1 sm:mx-2 justify-center items-center gap-y-4"
         >
           <div className="zoomed-image-container">
             <img
