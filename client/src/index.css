@@ -255,10 +255,6 @@ input {
 	@apply scale-x-100 origin-left;
 }
 
-.animate-underline:hover::after {
-	@apply scale-x-100;
-}
-
 .animate-underline:not(:hover)::after {
 	@apply scale-x-0 origin-right transition-transform;
 }
