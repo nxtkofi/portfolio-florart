@@ -5,8 +5,6 @@
 
 ## Features
 
-- [ ] feature/4-about-me-page
-  - [ ] mobile friendly
 
   - [ ] feature/5.1-pagination
 - [ ] feature/7-portfolio-page
@@ -23,8 +21,6 @@
 
 ### Working on
 
-- [x] feature/14-form-validation
-  - Create form validations for <ContactForm/> component
 
 #### Archived
 
@@ -44,6 +40,10 @@
 - [x] feature/9-contact-page
 - [x] feature/10-footer
 - [x] feature/12-fonts
+- [x] feature/14-form-validation
+  - Create form validations for <ContactForm/> component
+- [x] feature/4-about-me-page
+  - [x] mobile friendly
 
 ## Bugs
 ### Working on
