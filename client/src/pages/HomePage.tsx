@@ -11,7 +11,7 @@ export default function HomePage() {
     };
     grabUsers();
   });
-  
+
   const loginAsAdmin = async () => {
     const authData = await pb
       .collection("users")
