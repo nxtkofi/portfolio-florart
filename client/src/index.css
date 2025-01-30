@@ -158,7 +158,7 @@ body {
 }
 
 .footer {
-	@apply pt-40 flex flex-col items-center justify-center montserrat text-lg gap-y-4
+	@apply flex flex-col items-center justify-center montserrat text-lg gap-y-4
 }
 
 .footer a p {
@@ -224,4 +224,8 @@ button {
 
 a {
 	@apply opacity-100 hover:opacity-80 transition-opacity duration-200 ease-in-out;
+}
+
+input {
+	@apply focus:outline-none focus:ring-[3px] focus:ring-[#4a4b4e] transition-all duration-150;
 }

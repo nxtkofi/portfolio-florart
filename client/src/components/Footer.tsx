@@ -10,7 +10,24 @@ export function Footer(): ReactElement {
 
   return (
     <div className="footer">
-      <a className="flex flex-row items-center cursor-default">
+      <div className="flex flex-col justify-center gap-y-6 items-center border-b border-b-[#4a4b4e] py-16">
+        <p className="monserrat text-2xl tracking-wider font-bold">
+          NEWSLETTER
+        </p>
+        <p className="monserrat text-lg tracking-wide">
+          Zapisz się do newslettera i otrzymuj informacje o nowościach i
+          promocjach!
+        </p>
+        <input
+          placeholder="Wpisz adres e-mail"
+          className="border border-black py-2 px-4 w-fit"
+        />
+        <button className="bg-[#4a4b4e] montserrat text-white py-2 px-16">
+          Zapisz się
+        </button>
+      </div>
+
+      <a className="flex flex-row items-center cursor-default mt-12">
         <Globe size={36} strokeWidth={1} className="-ml-6" />
         <p className="ml-4">Weronika Florków</p>
       </a>
