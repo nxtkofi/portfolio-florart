@@ -5,24 +5,33 @@
 
 ## Features
 
+- [>] feature/3-art-slider-enhancements
+  - ~~Make slider work on smaller devices~~
+  - ~~Add finger-swiping feature~~
+  - Current workaround is: slider gets smaller and smaller. What I want to achieve long-term would be the following:
+    - The slider displays 3 images (just like now) on screens that are > 640px
+    - The slider displays 1 image on screens that are ≤ 640px
+
 
   - [ ] feature/5.1-pagination
 - [ ] feature/7-portfolio-page
 - [ ] feature/11-home-page
-- [ ] feature/12-dark-mode
-  - To specify darkmode colors you can use 'dark:' prefix to certain classes.
-  - Dark mode will be turned on when you add 'dark' to your <html> tag.
-  - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 - [ ] feature/10.1-footer-newsletter
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent
 - [ ] feature/15-turnstile
   - Add Turnstile to <ContactForm/>
+- [ ] feature/16-dark-mode
+  - To specify darkmode colors you can use 'dark:' prefix to certain classes.
+  - Dark mode will be turned on when you add 'dark' to your <html> tag.
+  - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 
 ### Working on
 
 
+
 #### Archived
+
 
 - [x] feature/1-header-navbar #Assigned
   - [x] Navbar should stick to the top of the page on scroll
@@ -44,6 +53,7 @@
   - Create form validations for <ContactForm/> component
 - [x] feature/4-about-me-page
   - [x] mobile friendly
+=======
 
 ## Bugs
 ### Working on
