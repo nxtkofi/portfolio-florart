@@ -44,7 +44,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
         </button>
       </div>
     );
-  } /* if(props.use === "paintingspage") */ else {
+  } else {
     return (
       <div key={props.index}>
         <button
@@ -53,7 +53,10 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           className="flex flex-col justify-center items-center gap-y-4 max-w-[34rem] mb-16"
         >
           <div className="zoomed-image-container">
-            <img src={props.item.photo} />
+            <img
+              alt={"Image of title:" + props.item.title}
+              src={props.item.photo}
+            />
           </div>
           <PaintingLabel
             labelColor={props.labelColor}

@@ -14,7 +14,7 @@ export function Footer(): ReactElement {
         <p className="monserrat text-2xl tracking-wider font-bold">
           NEWSLETTER
         </p>
-        <p className="monserrat text-lg tracking-wide">
+        <p className="monserrat text-lg tracking-wide text-center">
           Zapisz się do newslettera i otrzymuj informacje o nowościach i
           promocjach!
         </p>
@@ -22,7 +22,7 @@ export function Footer(): ReactElement {
           placeholder="Wpisz adres e-mail"
           className="border border-black py-2 px-4 w-fit"
         />
-        <button className="bg-[#4a4b4e] montserrat text-white py-2 px-16">
+        <button className="bg-[#4a4b4e] montserrat text-white py-2 px-16 button-hover">
           Zapisz się
         </button>
       </div>

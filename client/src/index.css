@@ -114,6 +114,14 @@
 	@apply bg-[#faf9f9] montserrat font-light text-center text-3xl mb-8 md:w-fit w-full py-6 place-self-center text-primary
 }
 
+.zoomed-image-container {
+	@apply w-full h-full overflow-hidden
+}
+
+.zoomed-image {
+	@apply scale-[155%] w-full h-full object-cover translate-y-[15%]
+}
+
 body {
 	@apply p-4 md:p-8
 }
@@ -222,7 +230,7 @@ html {
 	}
 }
 
-button {
+.button-hover {
 	@apply hover:opacity-80 transition-opacity duration-200 ease-in-out;
 }
 
@@ -232,4 +240,25 @@ a {
 
 input {
 	@apply focus:outline-none focus:ring-[3px] focus:ring-[#4a4b4e] transition-all duration-150;
+}
+
+.animate-underline {
+	@apply relative overflow-hidden;
+}
+
+.animate-underline::after {
+	content: "";
+	@apply absolute left-0 bottom-0 w-full h-[1px] bg-current transition-transform duration-300 scale-x-0 origin-left;
+}
+
+.animate-underline:hover::after {
+	@apply scale-x-100 origin-left;
+}
+
+.animate-underline:hover::after {
+	@apply scale-x-100;
+}
+
+.animate-underline:not(:hover)::after {
+	@apply scale-x-0 origin-right transition-transform;
 }

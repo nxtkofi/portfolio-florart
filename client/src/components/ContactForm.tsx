@@ -98,9 +98,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             </p>
             <button
               onClick={() => props.closeWindow && props.closeWindow()}
-              className="flex flex-row items-center text-lg text-gray-300 p-4 -m-4"
+              className="flex flex-row items-center text-lg text-gray-300 p-4 -m-4 "
             >
-              Zamknij <XIcon />
+              <p className="flex flex-row items-center animate-underline">
+                Zamknij <XIcon />
+              </p>
             </button>
           </div>
         )}
