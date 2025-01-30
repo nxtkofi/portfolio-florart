@@ -34,7 +34,6 @@ export function AboutMePage(): ReactElement {
         </div>
       </Wrapper>
       <PhotoGallery></PhotoGallery>
-
     </>
   );
 }

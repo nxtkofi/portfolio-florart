@@ -29,12 +29,12 @@ export function SidePanel(props: SidePanelProps): ReactElement {
               setIsReserve(true);
               showPopUp();
             }}
-            className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 hover:"
+            className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 button-hover"
           >
             Zarezerwuj teraz
           </button>
           <button
-            className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2"
+            className="w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 button-hover"
             onClick={() => {
               setIsReserve(false);
               showPopUp();
@@ -44,11 +44,11 @@ export function SidePanel(props: SidePanelProps): ReactElement {
           </button>
         </div>
         {props.instagramLink && (
-          <div className="mt-6 underline justify-center items-center">
+          <div className="mt-6 justify-center items-center">
             <a
               target="_blank"
               href="https://instagram.com/weronikaflorkow"
-              className="flex flex-row items-center text-[#4a4b4e]"
+              className="flex flex-row items-center text-[#4a4b4e] "
             >
               <div className="relative mr-2">
                 <Circle
@@ -65,7 +65,9 @@ export function SidePanel(props: SidePanelProps): ReactElement {
                   className="absolute top-[0.5rem] left-[0.5rem]"
                 />
               </div>
-              <p className="montserrat">Zobacz film na Instagramie</p>
+              <p className="montserrat animate-underline no-underline">
+                Zobacz film na Instagramie
+              </p>
             </a>
           </div>
         )}
