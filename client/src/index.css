@@ -118,6 +118,10 @@ body {
 	@apply p-4 md:p-8
 }
 
+html {
+	@apply overflow-x-hidden;
+}
+
 .background-primary {
 	@apply bg-[#dbd7d3];
 }
