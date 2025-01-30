@@ -27,7 +27,6 @@
 
 ### Working on
 
-- [ ] feature/10.1-footer-newsletter
 
 #### Archived
 
@@ -47,12 +46,12 @@
 - [x] feature/8-order-page
 - [x] feature/9-contact-page
 - [x] feature/10-footer
+- [x] feature/10.1-footer-newsletter
 - [x] feature/12-fonts
 - [x] feature/14-form-validation
   - Create form validations for <ContactForm/> component
 - [x] feature/4-about-me-page
   - [x] mobile friendly
-=======
 
 ## Bugs
 ### Working on
