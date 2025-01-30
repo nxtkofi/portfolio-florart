@@ -16,7 +16,6 @@
   - [ ] feature/5.1-pagination
 - [ ] feature/7-portfolio-page
 - [ ] feature/11-home-page
-- [ ] feature/10.1-footer-newsletter
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent
 - [ ] feature/15-turnstile
@@ -28,7 +27,7 @@
 
 ### Working on
 
-
+- [ ] feature/10.1-footer-newsletter
 
 #### Archived
 
