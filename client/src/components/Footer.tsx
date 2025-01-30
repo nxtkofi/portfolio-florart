@@ -14,7 +14,7 @@ export function Footer(): ReactElement {
         <p className="monserrat text-2xl tracking-wider font-bold">
           NEWSLETTER
         </p>
-        <p className="monserrat text-lg tracking-wide text-center">
+        <p className="monserrat text-lg tracking-wide text-center -mt-4 mb-4">
           Zapisz się do newslettera i otrzymuj informacje o nowościach i
           promocjach!
         </p>
