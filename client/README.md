@@ -23,10 +23,11 @@
   - To specify darkmode colors you can use 'dark:' prefix to certain classes.
   - Dark mode will be turned on when you add 'dark' to your <html> tag.
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
+- [ ] feature/17-subtle-animations
+  - Add subtle animations to webpage to make it appear as more "smooth" e.g: slight image zooms on hover etc.
 
 ### Working on
 
-- [ ] feature/11-home-page
 
 #### Archived
 
@@ -47,6 +48,7 @@
 - [x] feature/9-contact-page
 - [x] feature/10-footer
 - [x] feature/10.1-footer-newsletter
+- [x] feature/11-home-page
 - [x] feature/12-fonts
 - [x] feature/14-form-validation
   - Create form validations for <ContactForm/> component
