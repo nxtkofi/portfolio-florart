@@ -239,7 +239,7 @@ a {
 }
 
 input {
-	@apply focus:outline-none focus:ring-[3px] focus:ring-[#4a4b4e] transition-all duration-150;
+	@apply transition-all duration-150;
 }
 
 .animate-underline {
