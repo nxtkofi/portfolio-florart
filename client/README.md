@@ -25,7 +25,6 @@
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 - [ ] feature/17-subtle-animations
   - Add subtle animations to webpage to make it appear as more "smooth" e.g: slight image zooms on hover etc.
-
 ### Working on
 
 
@@ -66,6 +65,6 @@
 
 ## Improvements
 ### Working on
+
 #### Archived
 - [x] perf/1-performance-improve
-
