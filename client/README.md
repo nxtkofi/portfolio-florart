@@ -68,3 +68,6 @@
 
 #### Archived
 - [x] perf/1-performance-improve
+
+- [x] enhancement/2-forms-ui
+  - Purpose of this enhancement is to make forms more interactive and intuitive for end users; e.g instead of button disabled - point a user to what he has to fix before sending.
