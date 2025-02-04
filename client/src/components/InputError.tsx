@@ -28,7 +28,7 @@ const InputError = ({
     <div className="h-4 mb-4">
       <p
         ref={errorRef}
-        className={`text-red-500 text-sm transition-all duration-300 transform -mt-[1rem] ${
+        className={`text-red-500 text-sm transition-all duration-300 transform -mt-[1.5rem] ${
           isVisible && touched && error
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-2"
