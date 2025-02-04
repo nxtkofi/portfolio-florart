@@ -39,8 +39,65 @@ export function ContactForm(props: ContactFormProps): ReactElement {
     message: "",
     phone: "",
   });
-  const [formErrors, setFormErrors] = useState<FormErrorsType>({});
-  const [isTouched, setIsTouched] = useState<{ [key: string]: boolean }>({});
+  const [displayedErrors, setDisplayedErrors] = useState<FormErrorsType>({});
+  const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  function validateForm(values: FormValuesType): FormErrorsType {
+    const errors: FormErrorsType = {};
+
+    if (!values.name) {
+      errors.name = "Imię jest wymagane";
+    } else if (values.name.length < 2) {
+      errors.name = "Imię musi mieć co najmniej 2 znaki";
+    }
+
+    if (!values.email) {
+      errors.email = "Email jest wymagany";
+    } else if (!validator.isEmail(values.email)) {
+      errors.email = "Nieprawidłowy format adresu email";
+    }
+
+    if (props.isReserve) {
+      if (!values.phone) {
+        errors.phone = "Numer telefonu jest wymagany";
+      } else if (!validator.isMobilePhone(values.phone, "pl-PL")) {
+        errors.phone = "Nieprawidłowy format numeru telefonu";
+      }
+    } else {
+      if (!values.message) {
+        errors.message = "Wiadomość jest wymagana";
+      } else if (values.message.length <= 5) {
+        errors.message = "Wiadomość musi mieć więcej niż 5 znaków";
+      }
+    }
+
+    return errors;
+  }
+
+  // Immediate validation for submit button
+  useEffect(() => {
+    const errors = validateForm(formValues);
+    setAllowSend(Object.keys(errors).length === 0);
+  }, [formValues, props.isReserve]);
+
+  // Debounced validation for UI
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      const errors = validateForm(formValues);
+      // Only show errors for touched fields or if the form was submitted
+      const filteredErrors: FormErrorsType = {};
+      Object.entries(errors).forEach(([key, value]) => {
+        if (touchedFields.has(key) || isSubmitted) {
+          filteredErrors[key as keyof FormErrorsType] = value;
+        }
+      });
+      setDisplayedErrors(filteredErrors);
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [formValues, props.isReserve, touchedFields, isSubmitted]);
+
   function onInputChange(
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     fieldName: keyof FormValuesType,
@@ -51,59 +108,37 @@ export function ContactForm(props: ContactFormProps): ReactElement {
       [fieldName]: value,
     }));
 
-    setIsTouched((prev) => ({
-      ...prev,
-      [fieldName]: true,
-    }));
+    // Mark field as touched on first interaction
+    if (!touchedFields.has(fieldName)) {
+      setTouchedFields((prev) => new Set(prev).add(fieldName));
+    }
+
+    if (!isSubmitted) {
+      // Clear errors while typing
+      setDisplayedErrors((prev) => ({
+        ...prev,
+        [fieldName]: undefined,
+      }));
+    }
   }
-
-  function validateForm(): FormErrorsType {
-    const errors: FormErrorsType = {};
-
-    if (!formValues.name) {
-      errors.name = "Imię jest wymagane";
-    } else if (formValues.name.length < 2) {
-      errors.name = "Imię musi mieć co najmniej 2 znaki";
-    }
-
-    if (!formValues.email) {
-      errors.email = "Email jest wymagany";
-    } else if (!validator.isEmail(formValues.email)) {
-      errors.email = "Nieprawidłowy format adresu email";
-    }
-
-    if (props.isReserve) {
-      if (!formValues.phone) {
-        errors.phone = "Numer telefonu jest wymagany";
-      } else if (!validator.isMobilePhone(formValues.phone, "pl-PL")) {
-        errors.phone = "Nieprawidłowy format numeru telefonu";
-      }
-    } else {
-      if (!formValues.message) {
-        errors.message = "Wiadomość jest wymagana";
-      } else if (formValues.message.length <= 5) {
-        errors.message = "Wiadomość musi mieć więcej niż 5 znaków";
-      }
-    }
-
-    return errors;
-  }
-
-  useEffect(() => {
-    const errors = validateForm();
-    setFormErrors(errors);
-    setAllowSend(Object.keys(errors).length === 0);
-  }, [formValues]);
 
   function submitForm(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
-    setIsLoading(true);
+    setIsSubmitted(true);
+    const errors = validateForm(formValues);
+    setDisplayedErrors(errors);
+
+    if (Object.keys(errors).length === 0) {
+      setIsLoading(true);
+      // Handle form submission
+    }
   }
 
-  const inputClasses = (error?: string, touched?: boolean) => `
-  w-full border transition-colors duration-200 outline-none
-  ${error && touched ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500" : "border-gray-300 focus:border-gray-600 focus:ring-1 focus:ring-gray-600"}
-`;
+  const inputClasses = (error?: string) => `
+    w-full border transition-colors duration-200 outline-none
+    ${error ? "border-red-500 focus:border-red-500 focus:ring-1 focus:ring-red-500" : "border-gray-300 focus:border-gray-600 focus:ring-1 focus:ring-gray-600"}
+  `;
+
   return (
     <div
       className={`${props.isFloatingWindow ? "bg-[#4a4b4e]" : ""} ${props.className || ""}`}
@@ -130,7 +165,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           props.isFloatingWindow ? "!pt-8" : ""
         }`}
       >
-        <div className="">
+        <div className="mb-2">
           <label htmlFor="name" className="block mb-1">
             <b className="text-red-500">*</b> Imię:
           </label>
@@ -140,9 +175,9 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             value={formValues.name}
             onChange={(e) => onInputChange(e, "name")}
             type="text"
-            className={inputClasses(formErrors.name, isTouched.name)}
+            className={inputClasses(displayedErrors.name)}
           />
-          <InputError error={formErrors.name} touched={isTouched.name} />
+          <InputError error={displayedErrors.name} touched={true} />
         </div>
 
         <div className="mb-2">
@@ -155,9 +190,9 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             value={formValues.email}
             onChange={(e) => onInputChange(e, "email")}
             type="email"
-            className={inputClasses(formErrors.email, isTouched.email)}
+            className={inputClasses(displayedErrors.email)}
           />
-          <InputError error={formErrors.email} touched={isTouched.email} />
+          <InputError error={displayedErrors.email} touched={true} />
         </div>
 
         {!props.isReserve ? (
@@ -171,12 +206,9 @@ export function ContactForm(props: ContactFormProps): ReactElement {
               value={formValues.message}
               onChange={(e) => onInputChange(e, "message")}
               rows={7}
-              className={inputClasses(formErrors.message, isTouched.message)}
+              className={inputClasses(displayedErrors.message)}
             />
-            <InputError
-              error={formErrors.message}
-              touched={isTouched.message}
-            />
+            <InputError error={displayedErrors.message} touched={true} />
           </div>
         ) : (
           <div className="mb-2">
@@ -189,9 +221,9 @@ export function ContactForm(props: ContactFormProps): ReactElement {
               value={formValues.phone}
               onChange={(e) => onInputChange(e, "phone")}
               type="tel"
-              className={inputClasses(formErrors.phone, isTouched.phone)}
+              className={inputClasses(displayedErrors.phone)}
             />
-            <InputError error={formErrors.phone} touched={isTouched.phone} />
+            <InputError error={displayedErrors.phone} touched={true} />
           </div>
         )}
 
