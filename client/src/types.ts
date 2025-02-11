@@ -1,5 +1,3 @@
-import { ReactNode } from "react";
-
 export type NavbarLinkType = { header: string; path: string };
 export type ItemType = {
   id: string;
@@ -10,3 +8,11 @@ export type ItemType = {
   instagramLink?: string;
   /* path: string; */
 };
+
+export type FormErrorsType = {
+  name?: string;
+  email?: string;
+  message?: string;
+  phone?: string;
+};
+
