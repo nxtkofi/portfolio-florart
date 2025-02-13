@@ -5,9 +5,11 @@ import {
   useEffect,
   useState,
 } from "react";
-import validator from "validator";
 import { XIcon } from "lucide-react";
 import InputError from "./InputError";
+import { ContactFormField } from "./ContactFormField";
+import validateForm from "../helpers/validateForm";
+import { FormErrorsType, FormValuesType } from "../types";
 
 export interface ContactFormProps {
   isReserve?: boolean;
@@ -15,20 +17,6 @@ export interface ContactFormProps {
   className?: string;
   closeWindow?: () => void;
 }
-
-type FormValuesType = {
-  name: string;
-  email: string;
-  message?: string;
-  phone?: string;
-};
-
-type FormErrorsType = {
-  name?: string;
-  email?: string;
-  message?: string;
-  phone?: string;
-};
 
 export function ContactForm(props: ContactFormProps): ReactElement {
   const [allowSend, setAllowSend] = useState<boolean>(false);
@@ -43,49 +31,14 @@ export function ContactForm(props: ContactFormProps): ReactElement {
   const [touchedFields, setTouchedFields] = useState<Set<string>>(new Set());
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function validateForm(values: FormValuesType): FormErrorsType {
-    const errors: FormErrorsType = {};
-
-    if (!values.name) {
-      errors.name = "Imię jest wymagane";
-    } else if (values.name.length < 2) {
-      errors.name = "Imię musi mieć co najmniej 2 znaki";
-    }
-
-    if (!values.email) {
-      errors.email = "Email jest wymagany";
-    } else if (!validator.isEmail(values.email)) {
-      errors.email = "Nieprawidłowy format adresu email";
-    }
-
-    if (props.isReserve) {
-      if (!values.phone) {
-        errors.phone = "Numer telefonu jest wymagany";
-      } else if (!validator.isMobilePhone(values.phone, "pl-PL")) {
-        errors.phone = "Nieprawidłowy format numeru telefonu";
-      }
-    } else {
-      if (!values.message) {
-        errors.message = "Wiadomość jest wymagana";
-      } else if (values.message.length <= 5) {
-        errors.message = "Wiadomość musi mieć więcej niż 5 znaków";
-      }
-    }
-
-    return errors;
-  }
-
-  // Immediate validation for submit button
   useEffect(() => {
-    const errors = validateForm(formValues);
+    const errors = validateForm(formValues, props.isReserve);
     setAllowSend(Object.keys(errors).length === 0);
   }, [formValues, props.isReserve]);
 
-  // Debounced validation for UI
   useEffect(() => {
     const timeoutId = setTimeout(() => {
-      const errors = validateForm(formValues);
-      // Only show errors for touched fields or if the form was submitted
+      const errors = validateForm(formValues, props.isReserve);
       const filteredErrors: FormErrorsType = {};
       Object.entries(errors).forEach(([key, value]) => {
         if (touchedFields.has(key) || isSubmitted) {
@@ -108,13 +61,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
       [fieldName]: value,
     }));
 
-    // Mark field as touched on first interaction
     if (!touchedFields.has(fieldName)) {
       setTouchedFields((prev) => new Set(prev).add(fieldName));
     }
 
     if (!isSubmitted) {
-      // Clear errors while typing
       setDisplayedErrors((prev) => ({
         ...prev,
         [fieldName]: undefined,
@@ -125,12 +76,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
   function submitForm(e: FormEvent<HTMLFormElement>): void {
     e.preventDefault();
     setIsSubmitted(true);
-    const errors = validateForm(formValues);
+    const errors = validateForm(formValues, props.isReserve);
     setDisplayedErrors(errors);
 
     if (Object.keys(errors).length === 0) {
       setIsLoading(true);
-      // Handle form submission
     }
   }
 
@@ -165,68 +115,50 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           props.isFloatingWindow ? "!pt-8" : ""
         }`}
       >
-        <div className="mb-2">
-          <label htmlFor="name" className="block mb-1">
-            <b className="text-red-500">*</b> Imię:
-          </label>
-          <input
-            required
-            name="name"
-            value={formValues.name}
-            onChange={(e) => onInputChange(e, "name")}
-            type="text"
-            className={inputClasses(displayedErrors.name)}
-          />
-          <InputError error={displayedErrors.name} touched={true} />
-        </div>
-
-        <div className="mb-2">
-          <label htmlFor="email" className="block mb-1">
-            <b className="text-red-500">*</b> Adres e-mail:
-          </label>
-          <input
-            required
-            name="email"
-            value={formValues.email}
-            onChange={(e) => onInputChange(e, "email")}
-            type="email"
-            className={inputClasses(displayedErrors.email)}
-          />
-          <InputError error={displayedErrors.email} touched={true} />
-        </div>
-
+        <ContactFormField
+          required
+          name="name"
+          value={formValues.name}
+          onChange={(e) => onInputChange(e, "name")}
+          type="text"
+          className={inputClasses(displayedErrors.name)}
+          displayError={displayedErrors.name || ""}
+          labelText="Imię"
+        />
+        <ContactFormField
+          required
+          name="email"
+          value={formValues.email}
+          onChange={(e) => onInputChange(e, "email")}
+          type="email"
+          className={inputClasses(displayedErrors.email)}
+          displayError={displayedErrors.email || ""}
+          labelText="Adres e-mail"
+        />
         {!props.isReserve ? (
-          <div className="mb-2">
-            <label htmlFor="message" className="block mb-1">
-              <b className="text-red-500">*</b> Wiadomość:
-            </label>
-            <textarea
-              required
-              name="message"
-              value={formValues.message}
-              onChange={(e) => onInputChange(e, "message")}
-              rows={7}
-              className={inputClasses(displayedErrors.message)}
-            />
-            <InputError error={displayedErrors.message} touched={true} />
-          </div>
+          <textarea
+            required
+            name="message"
+            value={formValues.message}
+            onChange={(e) => onInputChange(e, "message")}
+            rows={7}
+            className={inputClasses(displayedErrors.message)}
+          />
         ) : (
-          <div className="mb-2">
-            <label htmlFor="phone" className="block mb-1">
-              <b className="text-red-500">*</b> Numer telefonu:
-            </label>
-            <input
-              required
-              name="phone"
-              value={formValues.phone}
-              onChange={(e) => onInputChange(e, "phone")}
-              type="tel"
-              className={inputClasses(displayedErrors.phone)}
-            />
-            <InputError error={displayedErrors.phone} touched={true} />
-          </div>
+          <ContactFormField
+            required
+            name="phone"
+            value={formValues.phone}
+            onChange={(e) => onInputChange(e, "phone")}
+            type="tel"
+            className={inputClasses(displayedErrors.phone)}
+            displayError={displayedErrors.phone || ""}
+            labelText="Numer telefonu"
+          />
         )}
-
+        {!props.isReserve && (
+          <InputError error={displayedErrors.message} touched={true} />
+        )}
         <div className="flex flex-col items-center justify-center">
           {props.isReserve && (
             <p className="text-center mb-2 montserrat font-light">
