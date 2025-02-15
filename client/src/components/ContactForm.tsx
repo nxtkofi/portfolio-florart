@@ -91,7 +91,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
 
   return (
     <div
-      className={`${props.isFloatingWindow ? "bg-[#4a4b4e]" : ""} ${props.className || ""}`}
+      className={`w-full md:w-[32rem] ${props.isFloatingWindow ? "bg-[#4a4b4e]" : ""} ${props.className || ""}`}
     >
       {props.isFloatingWindow && (
         <div className="py-4 px-6 flex flex-row justify-between items-center">
@@ -111,10 +111,11 @@ export function ContactForm(props: ContactFormProps): ReactElement {
       <form
         onSubmit={submitForm}
         id="contact-form"
-        className={`background-tertiary md:p-16 p-8 w-full md:w-[32rem] ${
-          props.isFloatingWindow ? "!pt-8" : ""
-        }`}
+        className={`background-tertiary ${
+          props.isFloatingWindow ? "!pt-8 w-full" : "w-full"
+        } md:p-16 p-8`}
       >
+        {" "}
         <ContactFormField
           required
           name="name"
@@ -136,7 +137,7 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           labelText="Adres e-mail"
         />
         {!props.isReserve ? (
-          <>
+          <div className="w-full">
             <label htmlFor="message" className="block mb-1">
               <b className="text-red-500">*</b> Wiadomość:
             </label>
@@ -146,10 +147,10 @@ export function ContactForm(props: ContactFormProps): ReactElement {
               value={formValues.message}
               onChange={(e) => onInputChange(e, "message")}
               rows={7}
-              className={inputClasses(displayedErrors.message)}
+              className={`${inputClasses(displayedErrors.message)} w-full`}
             />
             <InputError error={displayedErrors.message} touched={true} />
-          </>
+          </div>
         ) : (
           <ContactFormField
             required

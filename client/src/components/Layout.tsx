@@ -34,6 +34,7 @@ export default function Layout(): ReactElement {
               initial="hidden"
               animate="visible"
               exit="exit"
+              className="w-full md:w-auto"
               style={{ zIndex: 50 }}
             >
               <ContactForm
