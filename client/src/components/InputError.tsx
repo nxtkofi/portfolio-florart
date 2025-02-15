@@ -25,7 +25,7 @@ const InputError = ({
   }, [error, touched]);
 
   return (
-    <div className="h-4 mb-4">
+    <div className="h-2 mb-6 mt-1">
       <p
         ref={errorRef}
         className={`text-red-500 text-sm transition-all duration-300 transform -mt-[1rem] ${

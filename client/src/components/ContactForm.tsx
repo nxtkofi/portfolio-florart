@@ -136,14 +136,20 @@ export function ContactForm(props: ContactFormProps): ReactElement {
           labelText="Adres e-mail"
         />
         {!props.isReserve ? (
-          <textarea
-            required
-            name="message"
-            value={formValues.message}
-            onChange={(e) => onInputChange(e, "message")}
-            rows={7}
-            className={inputClasses(displayedErrors.message)}
-          />
+          <>
+            <label htmlFor="message" className="block mb-1">
+              <b className="text-red-500">*</b> Wiadomość:
+            </label>
+            <textarea
+              required
+              name="message"
+              value={formValues.message}
+              onChange={(e) => onInputChange(e, "message")}
+              rows={7}
+              className={inputClasses(displayedErrors.message)}
+            />
+            <InputError error={displayedErrors.message} touched={true} />
+          </>
         ) : (
           <ContactFormField
             required
@@ -155,9 +161,6 @@ export function ContactForm(props: ContactFormProps): ReactElement {
             displayError={displayedErrors.phone || ""}
             labelText="Numer telefonu"
           />
-        )}
-        {!props.isReserve && (
-          <InputError error={displayedErrors.message} touched={true} />
         )}
         <div className="flex flex-col items-center justify-center">
           {props.isReserve && (

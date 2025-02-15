@@ -16,3 +16,9 @@ export type FormErrorsType = {
   phone?: string;
 };
 
+export type FormValuesType = {
+  name: string;
+  email: string;
+  message?: string;
+  phone?: string;
+};

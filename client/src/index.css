@@ -94,11 +94,11 @@
 
 
 #contact-form input {
-	@apply mt-2 rounded-2xl text-xl p-4 w-full mb-6;
+	@apply mt-1 rounded-2xl text-xl p-4 w-full mb-4;
 }
 
 #contact-form textarea {
-	@apply mt-2 rounded-2xl text-xl p-4 w-full mb-6;
+	@apply mt-1 rounded-2xl text-xl p-4 w-full mb-4;
 }
 
 
