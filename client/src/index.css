@@ -131,11 +131,12 @@ html {
 }
 
 .background-primary {
-	@apply bg-[#dbd7d3];
+	/* @apply bg-[#dbd7d3]; */
+	@apply bg-[#f4f3f2]
 }
 
 .background-secondary {
-	@apply bg-[#edebe9]
+	@apply bg-[#fdfdfc]
 }
 
 .background-tertiary {

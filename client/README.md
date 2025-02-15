@@ -26,10 +26,7 @@
 - [ ] feature/17-subtle-animations
   - Add subtle animations to webpage to make it appear as more "smooth" e.g: slight image zooms on hover etc.
 ### Working on
-
-
 #### Archived
-
 
 - [x] feature/1-header-navbar #Assigned
   - [x] Navbar should stick to the top of the page on scroll
@@ -69,3 +66,4 @@
 - [x] perf/1-performance-improve
 - [x] enhancement/2-forms-ui
   - Purpose of this enhancement is to make forms more interactive and intuitive for end users; e.g instead of button disabled - point a user to what he has to fix before sending.
+- [x] refactor/3-contact-form

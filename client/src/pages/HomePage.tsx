@@ -9,7 +9,7 @@ export default function HomePage() {
           Poznaj moją twórczość
         </div>
         <div className="flex items-center justify-center -mx-[26px] sm:-mx-0 mb-9">
-          <ArtSlider />
+          <ArtSlider labelColor="#f9f9f8" />
         </div>
       </Wrapper>
       <div className="flex relative items-center justify-center h-64">
