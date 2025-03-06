@@ -17,7 +17,7 @@ export function AboutMePage(): ReactElement {
               className="lg:rounded-[100px] rounded-xl aspect-[3/4] sm:w-[28rem] sm:h-[36rem] w-full object-cover object-[30%] sm:m-8 sm:p-0 p-8 lg:p-0"
             />
           </div>
-          <div className="relative background-tertiary md:p-16 p-8 max-w-[32rem] sm:mb-8">
+          <div className="relative background-secondary md:p-16 p-8 max-w-[32rem] sm:mb-8">
             <p className="montserrat font-light text-2xl text-center leading-10">
               Moją twórczość inspiruje siła i piękno natury. Każdego dnia
               odkrywam ją na nowo, a malarstwo pozwala mi wejrzeć w jej głąb.

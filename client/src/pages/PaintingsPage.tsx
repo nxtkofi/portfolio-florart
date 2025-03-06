@@ -9,6 +9,7 @@ export function PaintingsPage(): ReactElement {
       <div className="md:mt-12 sm:mt-6 grid lg:grid-cols-2 grid-cols-1 gap-x-16">
         {ITEMS.map((item, index) => (
           <PrimaryPainting
+            labelColor="#f9f9f8"
             key={index}
             use={"paintingspage"}
             item={item}
