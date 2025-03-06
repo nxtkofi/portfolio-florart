@@ -14,7 +14,6 @@
 
 
   - [ ] feature/5.1-pagination
-- [ ] feature/7-portfolio-page
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent
 - [ ] feature/15-turnstile
@@ -25,7 +24,12 @@
   - [TailwindCSS DarkMode documentation](https://tailwindcss.com/docs/dark-mode)
 - [ ] feature/17-subtle-animations
   - Add subtle animations to webpage to make it appear as more "smooth" e.g: slight image zooms on hover etc.
+- [ ] feature/18-gift-card 
+
 ### Working on
+
+- [ ] feature/7-portfolio-page
+
 #### Archived
 
 - [x] feature/1-header-navbar #Assigned
