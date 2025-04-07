@@ -1,4 +1,7 @@
 {
+  "compilerOptions": {
+    "noEmitOnError": true
+  },
   "include": [
     "src/**/*.ts"
   ],

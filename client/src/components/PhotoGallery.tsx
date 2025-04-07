@@ -8,14 +8,14 @@ export function PhotoGallery(): ReactElement {
           <div>
             <img
               className="rounded-lg object-cover aspect-[6/4] w-full object-[0%_bottom]"
-              src="/1.O_mnie/MountainsCropped.png"
+              src="./1.O_mnie/MountainsCropped.png"
               alt=""
             />
           </div>
           <div>
             <img
               className="rounded-lg aspect-[80/37] w-full object-cover object-[50%_45%]"
-              src="/1.O_mnie/IMG_20201109_135516.jpg"
+              src="./1.O_mnie/IMG_20201109_135516.jpg"
               alt=""
             />
           </div>

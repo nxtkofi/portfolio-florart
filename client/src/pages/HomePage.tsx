@@ -14,7 +14,7 @@ export default function HomePage() {
       </Wrapper>
       <div className="flex relative items-center justify-center h-64">
         <img
-          src="/Nagłówek/IMG_0926.JPG"
+          src="./Nagłówek/IMG_0926.JPG"
           className="absolute h-full w-full object-cover opacity-70 z-0"
         />
         <div className="bg-[#FFFFFF] z-10 text-2xl montserrat font-extralight w-[50rem] md:h-32 h-40 opacity-80 absolute"></div>
@@ -45,7 +45,7 @@ export default function HomePage() {
             </div>
           </div>
           <img
-            src={"/1.O_mnie/profile.jpg"}
+            src={"./1.O_mnie/profile.jpg"}
             className="lg:rounded-[100px] rounded-xl aspect-[3/4]  md:w-80 lg:w-[28rem] sm:h-auto w-80 object-cover object-[30%] mt-6 lg:ml-8 mb-2"
           />
         </div>

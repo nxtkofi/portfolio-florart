@@ -27,7 +27,7 @@ export function Navbar() {
         className={`flex navbar flex-col items-center justify-center bg-[#dbd7d3] h-36 md:h-56 ${isSticky ? "mb-16" : ""} relative z-50`}
       >
         <img
-          src="/Nagłówek/IMG_0926.JPG"
+          src="./Nagłówek/IMG_0926.JPG"
           className="absolute w-full h-full object-cover opacity-20 z-0"
         />
         <p className="cormorant font-bold absolute text-10xl md:text-11xl leading-3 text-white opacity-50 md:bottom-32 md:mb-0 mb-8">
@@ -42,7 +42,7 @@ export function Navbar() {
           className="flex justify-center items-center w-full"
         >
           <img
-            src={"/Nagłówek/IMG_0928.PNG"}
+            src={"./Nagłówek/IMG_0928.PNG"}
             className="place-self-center z-20 md:h-56 h-36"
           />
         </button>

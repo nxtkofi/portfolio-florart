@@ -6,14 +6,14 @@ export function AboutMePage(): ReactElement {
   return (
     <>
       <img
-        src={"/1.O_mnie/IMG_20211011_135540_905.jpg"}
+        src={"./1.O_mnie/IMG_20211011_135540_905.jpg"}
         className="w-full object-cover lg:h-64 h-28 object-[100%_80%]"
       />
       <Wrapper className="p-0">
         <div className="flex lg:flex-row flex-col relative gap-x-16 lg:m-16 items-center justify-center">
           <div>
             <img
-              src={"/1.O_mnie/profile.jpg"}
+              src={"./1.O_mnie/profile.jpg"}
               className="lg:rounded-[100px] rounded-xl aspect-[3/4] sm:w-[28rem] sm:h-[36rem] w-full object-cover object-[30%] sm:m-8 sm:p-0 p-8 lg:p-0"
             />
           </div>

@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import { AboutMePage } from "./pages/AboutMePage";
 import { ContactPage } from "./pages/ContactPage";
@@ -16,7 +16,7 @@ import { PopUpProvider } from "./context/PopUpContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <AnimationDirProvider>
         <PopUpProvider>
           <Routes>
@@ -81,6 +81,6 @@ createRoot(document.getElementById("root")!).render(
           </Routes>
         </PopUpProvider>
       </AnimationDirProvider>
-    </BrowserRouter>
+    </HashRouter>
   </StrictMode>,
 );

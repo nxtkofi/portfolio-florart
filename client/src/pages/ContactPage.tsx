@@ -6,7 +6,7 @@ export function ContactPage(): ReactElement {
   return (
     <Wrapper className="!p-0 relative">
       <img
-        src="/Nagłówek/IMG_0926.JPG"
+        src="./Nagłówek/IMG_0926.JPG"
         className="absolute w-full h-full object-cover opacity-20"
       />
 

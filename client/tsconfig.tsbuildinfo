@@ -1,0 +1,1 @@
+{"root":["./src/apiroutes.ts","./src/global.d.ts","./src/types.ts","./src/vite-env.d.ts","./src/db/dbconnect.ts","./src/helpers/convertToPLN.ts","./src/helpers/validateForm.ts","./src/types/react-image-gallery.d.ts"],"errors":true,"version":"5.6.3"}
