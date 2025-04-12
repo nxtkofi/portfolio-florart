@@ -15,6 +15,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
   const [currentTranslate, setCurrentTranslate] = useState(33.33);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const extendedItems = [
     ITEMS[ITEMS.length - 2],
@@ -32,6 +33,20 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   const sliderRef = useRef<HTMLDivElement>(null);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkIsMobile();
+    
+    window.addEventListener('resize', checkIsMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+    };
+  }, []);
+
   const handleTouchStart = (e: React.TouchEvent) => {
     if (isAnimating) return;
 
@@ -44,7 +59,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
       setContainerWidth(sliderContainerRef.current.offsetWidth);
     }
 
-    setCurrentTranslate((currentIndex - 1) * 33.33);
+    setCurrentTranslate((currentIndex - 1) * (isMobile ? 100 : 33.33));
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
@@ -78,7 +93,6 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
         handlePrevious();
       }
     } else {
-      // Return to original position if swipe wasn't strong enough
       if (sliderRef.current) {
         sliderRef.current.style.transition = "transform 0.3s ease-in-out";
         sliderRef.current.style.transform = `translateX(-${currentTranslate}%)`;
@@ -130,9 +144,9 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   useEffect(() => {
     if (sliderRef.current) {
       sliderRef.current.style.transition = "none";
-      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
+      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * (isMobile ? 100 : 33.33)}%)`;
     }
-  }, []);
+  }, [isMobile]);
 
   useEffect(() => {
     if (isAnimating) {
@@ -147,7 +161,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           setCurrentIndex(ITEMS.length + 1);
           if (sliderRef.current) {
             sliderRef.current.style.transition = "none";
-            sliderRef.current.style.transform = `translateX(-${ITEMS.length * 33.33}%)`;
+            sliderRef.current.style.transform = `translateX(-${ITEMS.length * (isMobile ? 100 : 33.33)}%)`;
           }
         } else if (currentIndex === extendedItems.length - 3) {
           setScaleManage((prevArr) => {
@@ -158,21 +172,21 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           setCurrentIndex(2);
           if (sliderRef.current) {
             sliderRef.current.style.transition = "none";
-            sliderRef.current.style.transform = `translateX(-33.33%)`;
+            sliderRef.current.style.transform = `translateX(-${isMobile ? 100 : 33.33}%)`;
           }
         }
       }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, isAnimating, ITEMS.length, extendedItems.length]);
+  }, [currentIndex, isAnimating, ITEMS.length, extendedItems.length, isMobile]);
 
   useEffect(() => {
     if (!isAnimating) return;
     if (sliderRef.current) {
       sliderRef.current.style.transition = "transform 0.5s ease-in-out";
-      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * 33.33}%)`;
+      sliderRef.current.style.transform = `translateX(-${(currentIndex - 1) * (isMobile ? 100 : 33.33)}%)`;
     }
-  }, [currentIndex, isAnimating]);
+  }, [currentIndex, isAnimating, isMobile]);
 
   return (
     <div className="slider-container">

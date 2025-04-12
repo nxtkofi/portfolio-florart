@@ -1,1 +1,1 @@
-export const Ag = "/product/"
+export const SINGLEPRODUCTPAGE = "/product/"

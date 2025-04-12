@@ -167,7 +167,7 @@ html {
 }
 
 .slider-item {
-	@apply flex-shrink-0 basis-1/3 flex flex-col items-center text-center;
+	@apply flex-shrink-0 basis-full md:basis-1/3 flex flex-col items-center text-center;
 }
 
 .footer {

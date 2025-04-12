@@ -2,6 +2,7 @@ import { type ReactElement } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 import { ItemType } from "../types";
 import { useNavigate } from "react-router";
+import { SINGLEPRODUCTPAGE } from "../helpers/routes";
 
 export interface PrimaryPaintingProps {
   use: "slider" | "paintingspage";
@@ -14,13 +15,13 @@ export interface PrimaryPaintingProps {
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
   const navigate = useNavigate();
   const handleRedirect = () => {
-    navigate(API_SINGLEPRODUCTPAGE + props.item.id);
+    navigate(SINGLEPRODUCTPAGE + props.item.id);
   };
   if (props.use === "slider") {
     return (
       <div
         key={props.index}
-        className={`slider-item transition-all duration-500 ${props.isCenter ? "scale-110" : "scale-90"}`}
+        className={`slider-item transition-all duration-500 ${props.isCenter ? "md:scale-110 scale-100" : "md:scale-90 scale-100"}`}
       >
         <button
           aria-label={`Navigate to ${props.item.title} subpage.`}
@@ -62,7 +63,7 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
             allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.
             paintingName={props.item.title}
             price={props.item.price}
-            redirectPath={API_SINGLEPRODUCTPAGE + props.item.id}
+            redirectPath={SINGLEPRODUCTPAGE + props.item.id}
           />
         </button>
       </div>
