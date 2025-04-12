@@ -3,10 +3,10 @@ import { type ReactElement } from "react";
 export function GiftCardSection(): ReactElement {
   return (
     <>
-      <div className="flex flex-col md:flex-row-reverse w-full lg:gap-16 background-primary max-w-">
+      <div className="flex flex-col md:flex-row-reverse w-full lg:gap-16 background-primary max-w-[1600px] mt-4">
         <div className="md:w-1/2 flex flex-col gap-y-6 xl:mt-6 md:text-left text-center p-8 ">
           <p className="font-unna text-5xl font-light">Karta podarunkowa</p>
-          <p className="montserrat text-xl font-light leading-8 md:mr-16 mr-4 max-w-[600px]">
+          <p className="montserrat text-xl font-light leading-8 md:mr-16 mr-4">
             Szukasz pomysłu na prezent? Karta podarunkowa jest uniwersalnym i
             bezpiecznym rozwiązaniem. Osoba, która ją otrzyma, będzie miała
             możliwość samodzielnego wyboru lub zamówienia wymarzonego obrazu.
@@ -18,7 +18,7 @@ export function GiftCardSection(): ReactElement {
         </div>
         <img
           src="/miscellaneous/Business Card on Marble Mockup.jpg"
-          className="overflow-hidden object-cover aspect-square md:w-1/2 object-[75%] max-w-[600px]"
+          className="overflow-hidden object-cover aspect-square md:w-1/2 object-[75%] "
         />
       </div>
     </>
