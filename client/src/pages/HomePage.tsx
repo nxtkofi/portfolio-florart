@@ -1,4 +1,5 @@
 import { ArtSlider } from "../components/ArtSlider";
+import { GiftCardSection } from "../components/GiftCardSection";
 import { Wrapper } from "../components/Wrapper";
 
 export default function HomePage() {
@@ -27,19 +28,19 @@ export default function HomePage() {
           </button>
         </div>
       </div>
-      <div className="background-primary p-4 sm:p-8 text-center flex justify-center items-center">
+      <div className=" p-4 sm:p-8 text-center flex justify-center items-center">
         <div className="flex flex-col lg:flex-row items-center">
-          <div className="flex flex-col items-center justify-center">
-            <p className="bg-white font-light font-unna text-3xl sm:text-4xl py-3 sm:py-4 px-6 sm:px-10 w-fit mb-4">
-              O mnie
+          <div className="flex flex-col items-center justify-center gap-y-8">
+            <p className="bg-white font-light montserrat text-3xl sm:text-4xl px-6 sm:px-10 w-fit mt-8 md:mt-0">
+              O MNIE
             </p>
-            <div className="montserrat px-6 sm:px-8 py-6 sm:py-8 max-w-xs sm:max-w-md md:max-w-lg bg-white text-center flex flex-col items-center">
-              <p className="text-base sm:text-lg font-light">
+            <div className="montserrat px-6 sm:px-8 max-w-xs sm:max-w-md md:max-w-lg bg-white text-center flex flex-col items-center gap-y-8">
+              <p className="text-base sm:text-lg lg:text-xl font-light">
                 Mam na imię Weronika. Moją twórczość inspiruje natura, która
                 jest dla mnie niekończącym się źródłem inspiracji. To pozwala mi
                 na swobodne przekraczanie granic między realizmem a abstrakcją.
               </p>
-              <p className="text-lg sm:text-xl mt-3 sm:mt-4 montserrat animate-underline cursor-pointer w-fit text-center ">
+              <p className="text-lg sm:text-xl montserrat animate-underline cursor-pointer w-fit text-center">
                 Więcej
               </p>
             </div>
@@ -49,6 +50,9 @@ export default function HomePage() {
             className="lg:rounded-[100px] rounded-xl aspect-[3/4]  md:w-80 lg:w-[28rem] sm:h-auto w-80 object-cover object-[30%] mt-6 lg:ml-8 mb-2"
           />
         </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <GiftCardSection />
       </div>
     </>
   );
