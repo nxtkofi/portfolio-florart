@@ -43,7 +43,7 @@ export function ProductPage(): ReactElement {
           </div>
         )}
       </div>
-      <div className="mt-16 text-center text-4xl font-unna font-light">
+      <div className="mt-16 -mb-8 md:mb-0 text-center text-4xl font-unna font-light">
         Zobacz też
       </div>
       <ArtSlider labelColor="#f9f9f8" chevronColor="#4a4b4e" />
