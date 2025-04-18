@@ -131,7 +131,6 @@ html {
 }
 
 .background-primary {
-	/* @apply bg-[#dbd7d3]; */
 	@apply bg-[#f4f3f2]
 }
 
@@ -187,7 +186,7 @@ html {
 }
 
 .image-gallery-thumbnail.active {
-	@apply !border-[#edebe9]
+	@apply !border-[#ffffff]
 }
 
 .image-gallery-thumbnail:focus {

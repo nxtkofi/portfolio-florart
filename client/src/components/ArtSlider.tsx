@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ITEMS } from "../constants";
 import { PrimaryPainting } from "./PrimaryPainting";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 interface IArtSlider {
   chevronColor?: string;
@@ -15,7 +16,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
   const [currentTranslate, setCurrentTranslate] = useState(33.33);
   const [containerWidth, setContainerWidth] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useWindowDimensions().width < 768;
 
   const extendedItems = [
     ITEMS[ITEMS.length - 2],
@@ -32,20 +33,6 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
 
   const sliderRef = useRef<HTMLDivElement>(null);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    
-    checkIsMobile();
-    
-    window.addEventListener('resize', checkIsMobile);
-    
-    return () => {
-      window.removeEventListener('resize', checkIsMobile);
-    };
-  }, []);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     if (isAnimating) return;

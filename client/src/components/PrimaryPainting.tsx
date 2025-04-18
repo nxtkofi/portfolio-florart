@@ -1,8 +1,10 @@
-import { type ReactElement } from "react";
+import { useRef, useState, type ReactElement } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 import { ItemType } from "../types";
 import { useNavigate } from "react-router";
 import { SINGLEPRODUCTPAGE } from "../helpers/routes";
+import MagnifiedImage from "./MagnifiedImage";
+import { button, div } from "framer-motion/client";
 
 export interface PrimaryPaintingProps {
   use: "slider" | "paintingspage";
@@ -28,13 +30,11 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col lg:mx-6 mx-3 sm:mx-2 justify-center items-center gap-y-4"
         >
-          <div className="zoomed-image-container">
-            <img
-              alt={"Image of title:" + props.item.title}
-              src={props.item.photo}
-              className="zoomed-image"
-            />
-          </div>
+          <MagnifiedImage
+            src={props.item.photo}
+            containerClassName="zoomed-image-container"
+            imageClassName="zoomed-image"
+          />
           <PaintingLabel
             labelColor={props.labelColor}
             paintingName={props.item.title}
@@ -52,12 +52,11 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           onClick={handleRedirect}
           className="flex flex-col justify-center items-center gap-y-4 max-w-[34rem] mb-16"
         >
-          <div className="zoomed-image-container">
-            <img
-              alt={"Image of title:" + props.item.title}
-              src={props.item.photo}
-            />
-          </div>
+          <MagnifiedImage
+            src={props.item.photo}
+            containerClassName="zoomed-image-container"
+            imageClassName="zoomed-image"
+          />
           <PaintingLabel
             labelColor={props.labelColor}
             allowRedirect={false} // disallow redirect, because we already have a button wrapper that does that. If we'd allow redirect here - when user would click on "Więcej" he'd get redirected twice to the same page.

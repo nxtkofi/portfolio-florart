@@ -11,8 +11,6 @@
   - Current workaround is: slider gets smaller and smaller. What I want to achieve long-term would be the following:
     - The slider displays 3 images (just like now) on screens that are > 640px
     - The slider displays 1 image on screens that are ≤ 640px
-
-
   - [ ] feature/5.1-pagination
 - [ ] feature/13-product-page-api
   - Create api endpoint and prepare data from front-end to be sent

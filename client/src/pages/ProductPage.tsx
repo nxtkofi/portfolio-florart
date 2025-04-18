@@ -18,7 +18,7 @@ export function ProductPage(): ReactElement {
     <>
       <div className="background-primary px-8 py-16">
         {item && (
-          <div className="flex flex-row justify-center">
+          <div className="flex md:flex-row flex-col justify-center">
             <ImageGallery
               renderLeftNav={(onClick) => {
                 return <CustomNav onClick={onClick} isLeft={true} />;
@@ -28,7 +28,7 @@ export function ProductPage(): ReactElement {
               }}
               showPlayButton={false}
               showFullscreenButton={false}
-              additionalClass="w-1/3"
+              additionalClass="md:w-1/3"
               items={[
                 { original: item.photo, thumbnail: item.photo },
                 { original: item.photo, thumbnail: item.photo },

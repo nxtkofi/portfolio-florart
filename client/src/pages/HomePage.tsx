@@ -1,5 +1,6 @@
 import { ArtSlider } from "../components/ArtSlider";
 import { GiftCardSection } from "../components/GiftCardSection";
+import MagnifiedImage from "../components/MagnifiedImage";
 import { Wrapper } from "../components/Wrapper";
 
 export default function HomePage() {

@@ -18,7 +18,7 @@ export function AboutMePage(): ReactElement {
             />
           </div>
           <div className="relative background-secondary md:p-16 p-8 max-w-[32rem] sm:mb-8">
-            <p className="montserrat font-light text-2xl text-center leading-10">
+            <p className="montserrat font-light md:text-2xl text-center md:leading-10">
               Moją twórczość inspiruje siła i piękno natury. Każdego dnia
               odkrywam ją na nowo, a malarstwo pozwala mi wejrzeć w jej głąb.
               Natura jest dla mnie nie kończącym się źródłem inspiracji, co

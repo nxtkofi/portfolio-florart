@@ -22,7 +22,7 @@ export function Navbar() {
   }, [biggerThanMd]);
 
   return (
-    <div>
+    <nav>
       <div
         className={`flex navbar flex-col items-center justify-center bg-[#dbd7d3] h-36 md:h-56 ${isSticky ? "mb-16" : ""} relative z-50`}
       >
@@ -52,11 +52,17 @@ export function Navbar() {
       </div>
       <div
         className={`${
-          isSticky ? "fixed shadow-md top-0 left-0 w-full px-8 z-10" : ""
+          isSticky
+            ? "md:px-8 px-4 fixed shadow-md top-0 left-0 w-full z-10"
+            : ""
         } bg-white `}
       >
-        <LinksBar setFuturePath={setFuturePath} futurePath={futurePath} />
+        <LinksBar
+          isSticky={isSticky}
+          setFuturePath={setFuturePath}
+          futurePath={futurePath}
+        />
       </div>
-    </div>
+    </nav>
   );
 }
