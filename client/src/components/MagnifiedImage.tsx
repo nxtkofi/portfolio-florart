@@ -33,7 +33,7 @@ function MagnifiedImage({ src, containerClassName, imageClassName }: Props) {
   const imageStyle = {
     transform: isHovering ? `scale(${scale})` : "scale(1)",
     transformOrigin: `${position.x * 100}% ${position.y * 100}%`,
-    transition: isHovering ? "transform 0.1s ease-out" : "all 0.3s ease-out",
+    transition: isHovering ? "transform 0.3s ease-out" : "all 0.3s ease-out",
   };
 
   return (
