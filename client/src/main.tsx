@@ -13,11 +13,13 @@ import { AnimatedLayout } from "./components/AnimatedLayout";
 import { AnimationDirProvider } from "./context/AnimationDirContext";
 import { ProductPage } from "./pages/ProductPage";
 import { PopUpProvider } from "./context/PopUpContext";
+import { ItemsProvider } from "./context/ItemsContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <AnimationDirProvider>
+        <ItemsProvider>
         <PopUpProvider>
           <Routes>
             <Route element={<Layout />}>
@@ -33,7 +35,7 @@ createRoot(document.getElementById("root")!).render(
                 path="/about-me"
                 element={
                   <AnimatedLayout>
-                    <AboutMePage children={undefined} />
+                    <AboutMePage  />
                   </AnimatedLayout>
                 }
               />
@@ -41,7 +43,7 @@ createRoot(document.getElementById("root")!).render(
                 path="/paintings"
                 element={
                   <AnimatedLayout>
-                    <PaintingsPage children={undefined} />
+                    <PaintingsPage  />
                   </AnimatedLayout>
                 }
               />
@@ -49,7 +51,7 @@ createRoot(document.getElementById("root")!).render(
                 path="/portfolio"
                 element={
                   <AnimatedLayout>
-                    <PortfolioPage children={undefined} />
+                    <PortfolioPage  />
                   </AnimatedLayout>
                 }
               />
@@ -57,7 +59,7 @@ createRoot(document.getElementById("root")!).render(
                 path="/order"
                 element={
                   <AnimatedLayout>
-                    <OrderPage children={undefined} />
+                    <OrderPage  />
                   </AnimatedLayout>
                 }
               />
@@ -65,7 +67,7 @@ createRoot(document.getElementById("root")!).render(
                 path="/contact"
                 element={
                   <AnimatedLayout>
-                    <ContactPage children={undefined} />
+                    <ContactPage  />
                   </AnimatedLayout>
                 }
               />
@@ -80,6 +82,7 @@ createRoot(document.getElementById("root")!).render(
             </Route>
           </Routes>
         </PopUpProvider>
+        </ItemsProvider>
       </AnimationDirProvider>
     </BrowserRouter>
   </StrictMode>,

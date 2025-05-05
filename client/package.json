@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@types/validator": "^13.12.2",
+    "axios": "^1.9.0",
     "framer-motion": "^11.14.4",
     "lucide-react": "^0.468.0",
     "pocketbase": "^0.23.0",

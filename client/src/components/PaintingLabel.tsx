@@ -1,5 +1,5 @@
 import { type ReactElement } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export interface PaintingLabelProps {
   paintingName: string;
@@ -10,7 +10,6 @@ export interface PaintingLabelProps {
 }
 
 export function PaintingLabel(props: PaintingLabelProps): ReactElement {
-  const navigate = useNavigate();
   const PLN = new Intl.NumberFormat("pl-PL", {
     style: "currency",
     currency: "PLN",
@@ -26,15 +25,13 @@ export function PaintingLabel(props: PaintingLabelProps): ReactElement {
         {props.paintingName}
       </p>
       <p className="font-extralight md:text-base">{PLN.format(props.price)}</p>
-      <button
-        onClick={() => {
-          if (props.allowRedirect) navigate(props.redirectPath!);
-        }}
+      <Link
+        to={"/products/" + props.redirectPath}
         aria-label={"Redirects user to painting " + props.paintingName}
         className="pt-4 px-4 mb-0 -m-4 font-light underline-offset-2 text-sm md:text-base animate-underline w-fit flex self-center z-20"
       >
         Więcej
-      </button>
+      </Link>
     </div>
   );
 }

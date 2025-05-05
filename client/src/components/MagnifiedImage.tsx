@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { API_URL } from "../helpers/apiroutes";
 type Props = {
   src: string;
   containerClassName?: string;
@@ -7,7 +8,7 @@ type Props = {
 
 function MagnifiedImage({ src, containerClassName, imageClassName }: Props) {
   const [isHovering, setIsHovering] = useState(false);
-  const [position, setPosition] = useState({ x: 0.5, y: 0.5 }); // Domyślnie środek
+  const [position, setPosition] = useState({ x: 0.5, y: 0.5 });
   const containerRef = useRef<HTMLDivElement>(null);
   const scale = 1.5;
 
@@ -33,7 +34,7 @@ function MagnifiedImage({ src, containerClassName, imageClassName }: Props) {
   const imageStyle = {
     transform: isHovering ? `scale(${scale})` : "scale(1)",
     transformOrigin: `${position.x * 100}% ${position.y * 100}%`,
-    transition: isHovering ? "transform 0.3s ease-out" : "all 0.3s ease-out",
+    transition: isHovering ? "transform 0.5s ease-out" : "all 0.5s ease-out",
   };
 
   return (
@@ -46,7 +47,7 @@ function MagnifiedImage({ src, containerClassName, imageClassName }: Props) {
     >
       <img
         className={imageClassName}
-        src={src}
+        src={API_URL + src}
         alt="Przykładowy obraz"
         style={imageStyle}
       />

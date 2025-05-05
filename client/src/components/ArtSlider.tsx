@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { ITEMS } from "../constants";
 import { PrimaryPainting } from "./PrimaryPainting";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useItems } from "../hooks/useItems";
 
 interface IArtSlider {
   chevronColor?: string;
@@ -10,6 +10,7 @@ interface IArtSlider {
 }
 
 export function ArtSlider(props: IArtSlider): React.ReactElement {
+  const { items } = useItems();
   const [currentIndex, setCurrentIndex] = useState(2);
   const [isAnimating, setIsAnimating] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
@@ -19,12 +20,12 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
   const isMobile = useWindowDimensions().width < 768;
 
   const extendedItems = [
-    ITEMS[ITEMS.length - 2],
-    ITEMS[ITEMS.length - 1],
-    ...ITEMS,
-    ITEMS[0],
-    ITEMS[1],
-    ITEMS[2],
+    items[items.length - 2],
+    items[items.length - 1],
+    ...items,
+    items[0],
+    items[1],
+    items[2],
   ];
 
   const [scaleManage, setScaleManage] = useState<boolean[]>(
@@ -98,7 +99,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
         setScaleManage((prevArray) => {
           const updatedArray = [...prevArray];
           updatedArray[prev] = false;
-          if (prev === ITEMS.length + 1) {
+          if (prev === items.length + 1) {
             updatedArray[2] = true;
           }
           updatedArray[newIndex] = true;
@@ -118,7 +119,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
           const updatedArray = [...prevArray];
           updatedArray[prev] = false;
           if (prev === 2) {
-            updatedArray[ITEMS.length + 1] = true;
+            updatedArray[items.length + 1] = true;
           }
           updatedArray[newIndex] = true;
           return updatedArray;
@@ -145,10 +146,10 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
             newArr[1] = false;
             return newArr;
           });
-          setCurrentIndex(ITEMS.length + 1);
+          setCurrentIndex(items.length + 1);
           if (sliderRef.current) {
             sliderRef.current.style.transition = "none";
-            sliderRef.current.style.transform = `translateX(-${ITEMS.length * (isMobile ? 100 : 33.33)}%)`;
+            sliderRef.current.style.transform = `translateX(-${items.length * (isMobile ? 100 : 33.33)}%)`;
           }
         } else if (currentIndex === extendedItems.length - 3) {
           setScaleManage((prevArr) => {
@@ -165,7 +166,7 @@ export function ArtSlider(props: IArtSlider): React.ReactElement {
       }, 500);
       return () => clearTimeout(timeout);
     }
-  }, [currentIndex, isAnimating, ITEMS.length, extendedItems.length, isMobile]);
+  }, [currentIndex, isAnimating, items.length, extendedItems.length, isMobile]);
 
   useEffect(() => {
     if (!isAnimating) return;

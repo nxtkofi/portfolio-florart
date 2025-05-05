@@ -3,7 +3,13 @@ import { useLocation, useNavigate } from "react-router";
 import { NAVBAR_LINKS } from "../constants";
 import { useAnimationDir } from "../hooks/useAnimationDir";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import { MenuIcon, X } from "lucide-react";
+import {
+  MenuIcon,
+  PersonStandingIcon,
+  ShoppingCartIcon,
+  UserIcon,
+  X,
+} from "lucide-react";
 
 interface ILinksBar {
   futurePath: string;
@@ -46,12 +52,12 @@ export function LinksBar(props: ILinksBar) {
 
   return (
     <div
-      className={`alexandria font-extralight ${props.isSticky && !isMobile ? "flex justify-between" : "md:flex md:justify-between"} pb-4 pt-4 md:mx-16 md:text-xl lg:text-2xl`}
+      className={`alexandria font-extralight ${props.isSticky && !isMobile ? "flex justify-between" : "md:flex md:justify-between"} pb-5 pt-4 md:mx-16 md:text-xl lg:text-2xl`}
     >
       {!isMobile ? (
         NAVBAR_LINKS.map((link) => (
           <button
-            key={link.header}
+            key={link.key}
             aria-label={
               "Button redirecting user to '" + link.header + "' section."
             }
@@ -66,21 +72,41 @@ export function LinksBar(props: ILinksBar) {
           </button>
         ))
       ) : (
-        <div className="flex flex-row justify-between w-full items-center">
-          {props.isSticky && (
-            <p className="font-medium text-lg">Weronika Florków</p>
-          )}
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className={"ml-auto mr-2"}
-            aria-label={menuOpen ? "Close menu" : "Open menu"}
-          >
-            {menuOpen ? <X size={24} /> : <MenuIcon size={24} />}
-          </button>
+        <div className="w-full items-center">
+          <div className="flex flex-row  gap-x-8 justify-end">
+            {props.isSticky && (
+              <button
+                className="mr-auto ml-8"
+                onClick={() => navigateToPage("/")}
+                aria-label="Button redirecting to home page"
+              >
+                <img
+                  src="/Nagłówek/IMG_0928.PNG"
+                  className="h-8 scale-[2.0] "
+                />
+              </button>
+            )}
+            <button>
+              <UserIcon strokeWidth={1.5} size={24} />
+            </button>
+            <button>
+              <ShoppingCartIcon strokeWidth={1.5} size={24} />
+            </button>
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className={" mr-2"}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+            >
+              {menuOpen ? (
+                <X size={24} strokeWidth={1.5} />
+              ) : (
+                <MenuIcon strokeWidth={1.5} size={24} />
+              )}
+            </button>
+          </div>
         </div>
       )}
 
-      {/* Mobile Menu */}
       {isMobile && (
         <div
           className={`fixed left-0 right-0 top-0 bottom-0 bg-white z-50 transition-transform duration-300 ease-in-out ${
@@ -97,6 +123,7 @@ export function LinksBar(props: ILinksBar) {
         >
           <div className="flex flex-col items-center justify-center h-full space-y-8 p-4 relative">
             {/* Close button when menu is open and not sticky */}
+
             {!props.isSticky && (
               <button
                 className="absolute top-4 right-4 p-2"
@@ -107,22 +134,28 @@ export function LinksBar(props: ILinksBar) {
               </button>
             )}
 
-            {NAVBAR_LINKS.map((link) => (
-              <button
-                key={link.header}
-                aria-label={
-                  "Button redirecting user to '" + link.header + "' section."
-                }
-                className="uppercase transition-all duration-300 text-2xl py-2"
-                onClick={() => navigateToPage(link.path)}
-              >
-                {location.pathname === link.path ? (
-                  <p className="font-normal">{link.header}</p>
-                ) : (
-                  <p>{link.header}</p>
-                )}
-              </button>
-            ))}
+            {NAVBAR_LINKS.map((link) => {
+              if (link.desktopOnly) return;
+              else
+                return (
+                  <button
+                    key={link.key}
+                    aria-label={
+                      "Button redirecting user to '" +
+                      link.header +
+                      "' section."
+                    }
+                    className="uppercase transition-all duration-300 text-2xl py-2"
+                    onClick={() => navigateToPage(link.path)}
+                  >
+                    {location.pathname === link.path ? (
+                      <p className="font-normal">{link.header}</p>
+                    ) : (
+                      <p>{link.header}</p>
+                    )}
+                  </button>
+                );
+            })}
           </div>
         </div>
       )}

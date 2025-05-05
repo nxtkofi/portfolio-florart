@@ -1,9 +1,10 @@
 import { ArtSlider } from "../components/ArtSlider";
 import { GiftCardSection } from "../components/GiftCardSection";
-import MagnifiedImage from "../components/MagnifiedImage";
 import { Wrapper } from "../components/Wrapper";
+import { useItems } from "../hooks/useItems";
 
 export default function HomePage() {
+  const { items } = useItems();
   return (
     <>
       <Wrapper>
@@ -11,7 +12,7 @@ export default function HomePage() {
           Poznaj moją twórczość
         </div>
         <div className="flex items-center justify-center -mx-[26px] sm:-mx-0 mb-9">
-          <ArtSlider labelColor="#f9f9f8" chevronColor="#000000" />
+          {items && <ArtSlider labelColor="#f9f9f8" chevronColor="#000000" />}
         </div>
       </Wrapper>
       <div className="flex relative items-center justify-center h-64">
