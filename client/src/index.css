@@ -107,7 +107,7 @@
 }
 
 #order-form {
-	@apply montserrat font-light p-16 background-tertiary md:w-[30rem] flex flex-col text-center
+	@apply montserrat font-light p-16 background-secondary md:w-[30rem] flex flex-col text-center
 }
 
 .form-header {
@@ -181,9 +181,9 @@ html {
 	@apply ml-4
 }
 
-.image-gallery-thumbnails-container {
-	@apply flex items-start
-}
+/* .image-gallery-thumbnails-container { */
+/* 	@apply flex items-start */
+/* } */
 
 .image-gallery-thumbnail.active {
 	@apply !border-[#ffffff]
