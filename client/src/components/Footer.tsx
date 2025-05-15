@@ -1,5 +1,7 @@
 import { Circle, Globe, Instagram, Mail, PhoneCall } from "lucide-react";
 import { type ReactElement } from "react";
+import { ROUTE_PRIVACY_POLICY, ROUTE_STORE_POLICY } from "../helpers/routes";
+import { Link } from "react-router-dom";
 
 export function Footer(): ReactElement {
   function shouldAddYear(): number | null {
@@ -77,7 +79,14 @@ export function Footer(): ReactElement {
         </div>
         <p>+48 508 564 555</p>
       </a>
-
+      <div className="flex flex-col gap-y-4 mt-8 text-center">
+        <Link to={ROUTE_STORE_POLICY} className="animate-underline">
+          Regulamin sklepu
+        </Link>
+        <Link to={ROUTE_PRIVACY_POLICY} className="animate-underline">
+          Polityka prywatności
+        </Link>
+      </div>
       <div className="-mb-8 mt-8 flex flex-col font-light alexandria text-sm text-center cursor-default">
         <p>Design by Weronika Florków</p>
         <a
