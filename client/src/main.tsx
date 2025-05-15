@@ -14,8 +14,9 @@ import { AnimationDirProvider } from "./context/AnimationDirContext";
 import { ProductPage } from "./pages/ProductPage";
 import { PopUpProvider } from "./context/PopUpContext";
 import { ItemsProvider } from "./context/ItemsContext";
-import { ROUTE_STORE_POLICY } from "./helpers/routes";
+import { ROUTE_PRIVACY_POLICY, ROUTE_STORE_POLICY } from "./helpers/routes";
 import { StorePolicyPage } from "./pages/StorePolicyPage";
+import { PrivacyPolicyPage } from "./pages/PrivacyPolicyPage";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -89,6 +90,15 @@ createRoot(document.getElementById("root")!).render(
                   </AnimatedLayout>
                 }
               />
+                <Route
+                path={ROUTE_PRIVACY_POLICY}
+                element={
+                  <AnimatedLayout>
+                    <PrivacyPolicyPage />
+                  </AnimatedLayout>
+                }
+              />
+
             </Route>
           </Routes>
         </PopUpProvider>

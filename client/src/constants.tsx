@@ -141,3 +141,119 @@ export const SHOP_REGULATIONS: { header: string; subsections: string[] }[] = [
     ],
   },
 ];
+
+export const PRIVACY_POLICY: {
+  header: string;
+  subheader?: string;
+  subsection?: { content: string[]; type: "decimal" | "dotted" };
+}[] = [
+  {
+    header: "Administrator danych osobowych",
+    subheader:
+      "Administratorem danych osobowych jest [Twoje imię i nazwisko / firma], prowadząca działalność gospodarczą pod nazwą [nazwa firmy], zarejestrowaną w CEIDG. Możesz skontaktować się z nami pod adresem e-mail: [adres].",
+  },
+  {
+    header: "Cele i podstawy przetwarzania danych",
+    subheader: "Dane osobowe przetwarzane są w następujących celach:",
+    subsection: {
+      type: "decimal",
+      content: [
+        "Realizacja zamówień złożonych przez sklep, e-mail lub media społecznościowe – na podstawie art. 6 ust. 1 lit. b RODO (wykonanie umowy).",
+        "Obsługa reklamacji, zwrotów i kontaktu z klientem – na podstawie art. 6 ust. 1 lit. c RODO (obowiązek prawny).",
+        "Wystawienie faktur i dokumentów księgowych – na podstawie przepisów prawa podatkowego.",
+        "Archiwizacja korespondencji i danych dla celów zabezpieczenia roszczeń – na podstawie art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes).",
+      ],
+    },
+  },
+  {
+    header: "Zakres przetwarzanych danych",
+    subheader:
+      "Przetwarzamy wyłącznie dane niezbędne do realizacji celów wymienionych w punkcie drugim, w szczególności: ",
+    subsection: {
+      type: "dotted",
+      content: [
+        "imię i nazwisko,",
+        "adres dostawy,",
+        "adres e-mail,",
+        "numer telefonu,",
+        "dane do faktury,",
+        "treść wiadomości przesyłana drogą mailową lub przez media społecznościowe.",
+      ],
+    },
+  },
+  {
+    header: "Odbiorcy danych",
+    subheader: "Dane osobowe mogą być przekazywane:",
+    subsection: {
+      type: "dotted",
+      content: [
+        "firmom kurierskim realizującym wysyłki,",
+        "podmiotom realizującym płatności elektroniczne,",
+        "biuru rachunkowemu,",
+        "firmom hostingowym i technicznym wspierającym działanie sklepu.",
+      ],
+    },
+  },
+  {
+    header: "Okres przezchowywania danych",
+    subheader: "Dane osobowe przechowywujemy:",
+    subsection: {
+      type: "dotted",
+      content: [
+        "przez okres realizacji zamówienia oraz przez 6 lat od końca roku podatkowego-w celach podatkowych i księgowych,",
+        "do czasu przedawnienia roszczeń cywilnoprawnych wynikających z zawartej umowy,",
+        "do czasu cofnięcia zgody – jeśli dane były przetwarzane na podstawie zgody.",
+      ],
+    },
+  },
+  {
+    header: "Prawa osoby, której dane dotyczą",
+    subheader: "Każda osoba,której dane dotyczą ma prawo do:",
+    subsection: {
+      type: "dotted",
+      content: [
+        "dostępu do swoich danych,",
+        "ich sprostowania, usunięcia lub ograniczenia przetwarzania,",
+        "wniesienia sprzeciwu wobec przetwarzania,",
+        "przenoszenia danych,",
+        "wniesienia skargi do Prezesa UODO (ul. Stawki 2, 00-193 Warszawa),",
+        "cofnięcia zgody w dowolnym momencie – jeśli przetwarzanie odbywa się na jej podstawie.",
+      ],
+    },
+  },
+  {
+    header: "Dobrowolność podania danych",
+    subheader:
+      "Podanie danych osobowych jest dobrowolne, ale niezbędne do zawarcia i realizacji umowy sprzedaży. Brak podania danych uniemożliwia złożenie zamówienia.",
+  },
+  {
+    header: "Pliki cookies i technologie śledzące",
+    subsection: {
+      type: "decimal",
+      content: [
+        "Strona sklepu może korzystać z plików cookies – małych plików zapisywanych na urządzeniu użytkownika, które umożliwiają m.in. prawidłowe działanie strony oraz zbieranie danych statystycznych.",
+        "Użytkownik może samodzielnie zarządzać plikami cookies, zmieniając ustawienia przeglądarki.",
+        "Na stronie mogą być stosowane narzędzia analityczne (np. Google Analytics) i marketingowe (np. Meta Pixel), które zbierają anonimowe dane statystyczne.",
+        "Korzystając ze strony, użytkownik wyraża zgodę na wykorzystywanie cookies, zgodnie z ustawieniami swojej przeglądarki.",
+      ],
+    },
+  },
+  {
+    header: "Newsletter i komunikacja marketingowa",
+    subsection: {
+      type: "decimal",
+      content: [
+        "Użytkownik może dobrowolnie zapisać się do newslettera, podając swój adres e-mail w przeznaczonym do tego formularzu.",
+        "Adres e-mail będzie wykorzystywany wyłącznie do przesyłania informacji o nowościach, promocjach, produktach lub wydarzeniach związanych ze sklepem.",
+        "Podstawą prawną przetwarzania danych w celach marketingowych jest zgoda użytkownika (art. 6 ust. 1 lit. a RODO oraz art. 10 ustawy o świadczeniu usług drogą elektroniczną).",
+        "Użytkownik może w każdej chwili wycofać zgodę i zrezygnować z otrzymywania newslettera – poprzez kliknięcie linku wypisu znajdującego się w każdej wiadomości lub kontaktując się bezpośrednio ze Sprzedawcą.",
+        "Dane subskrybentów newslettera są przechowywane do czasu wycofania zgody.",
+      ],
+    },
+  },
+  {
+    header: "Zmiany polityki prywatności",
+    subheader:
+      "Administrator zastrzega sobie prawo do wprowadzania zmian w Polityce prywatności. Aktualna wersja dokumentu zawsze będzie dostępna na stronie internetowej sklepu.",
+  },
+];
