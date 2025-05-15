@@ -1,7 +1,7 @@
 import { useEffect, type ReactElement } from "react";
 import { PaintingLabel } from "./PaintingLabel";
 import { useNavigate } from "react-router";
-import { SINGLEPRODUCTPAGE } from "../helpers/routes";
+import { ROUTE_SINGLEPRODUCTPAGE } from "../helpers/routes";
 import MagnifiedImage from "./MagnifiedImage";
 import { ItemType } from "../context/ItemsContext";
 
@@ -16,7 +16,7 @@ export interface PrimaryPaintingProps {
 export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
   const navigate = useNavigate();
   const handleRedirect = () => {
-    navigate(SINGLEPRODUCTPAGE + props.item.id);
+    navigate(ROUTE_SINGLEPRODUCTPAGE + props.item.id);
   };
   if (!props.item) {
     return <span className="loader"></span>;
@@ -41,7 +41,6 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
             labelColor={props.labelColor}
             paintingName={props.item.title}
             price={props.item.price}
-            allowRedirect={false}
           />
         </div>
       </div>
@@ -61,10 +60,9 @@ export function PrimaryPainting(props: PrimaryPaintingProps): ReactElement {
           />
           <PaintingLabel
             labelColor={props.labelColor}
-            allowRedirect={false}
             paintingName={props.item.title}
             price={props.item.price}
-            redirectPath={SINGLEPRODUCTPAGE + props.item.id}
+            redirectPath={ROUTE_SINGLEPRODUCTPAGE + props.item.id}
           />
         </button>
       </div>

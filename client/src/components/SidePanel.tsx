@@ -18,9 +18,9 @@ export function SidePanel(props: SidePanelProps): ReactElement {
   };
   return (
     <>
-      <div className="background-secondary py-4 h-fit md:mx-8 px-4 mt-4 md:mt-0">
+      <div className="background-secondary py-4 h-fit md:mx-4 lg:mx-8 px-4 mt-4 md:mt-0">
         <p className="text-5xl font-unna font-light mb-2">{props.title}</p>
-        <p className="text-xl font-extralight whitespace-pre text-[#4a4b4e] alexandria">
+        <p className="lg:text-xl text-lg font-extralight whitespace-pre text-[#4a4b4e] alexandria leading-6">
           {props.subtitle}
         </p>
         <div className="flex flex-col gap-y-4 mt-16 md:items-center">
@@ -29,12 +29,12 @@ export function SidePanel(props: SidePanelProps): ReactElement {
               setIsReserve(true);
               showPopUp();
             }}
-            className="min-w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 button-hover"
+            className="lg:min-w-72 md:min-w-56 bg-[#4a4b4e] montserrat lg:text-xl text-white py-2 button-hover text-lg"
           >
             Zarezerwuj teraz
           </button>
           <button
-            className="min-w-72 bg-[#4a4b4e] montserrat text-xl text-white py-2 button-hover"
+            className="lg:min-w-72 md:min-w-56 bg-[#4a4b4e] montserrat lg:text-xl text-white py-2 button-hover text-lg"
             onClick={() => {
               setIsReserve(false);
               showPopUp();
@@ -72,7 +72,7 @@ export function SidePanel(props: SidePanelProps): ReactElement {
           </div>
         )}
         <div className="flex flex-row justify-end">
-          <p className="alexandria font-extralight text-3xl text-[#4a4b4e] mt-32">
+          <p className="alexandria font-extralight lg:text-3xl text-2xl text-[#4a4b4e] mt-32">
             {convertToPLN(props.price)}
           </p>
         </div>

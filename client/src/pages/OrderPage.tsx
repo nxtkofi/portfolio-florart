@@ -10,6 +10,8 @@ import {
   Brush,
 } from "lucide-react";
 import { usePopUp } from "../hooks/usePopUp";
+import { Link } from "react-router-dom";
+import { ROUTE_STORE_POLICY } from "../helpers/routes";
 
 export function OrderPage(): ReactElement {
   const { popUpShown, setPopUpShown } = usePopUp();
@@ -56,7 +58,13 @@ export function OrderPage(): ReactElement {
                 <HandHelping strokeWidth={0.75} size={64} />
                 <Coins className="absolute -top-2 left-6 z-30" />
               </div>
-              <p>Wpłać zaliczkę</p>
+              <p>
+                Wpłać zaliczkę za obraz
+                <br />
+                <Link to={ROUTE_STORE_POLICY} className="underline">
+                  Regulamin sklepu
+                </Link>
+              </p>
             </div>
             <div className="flex flex-row items-center">
               <div className="relative">
